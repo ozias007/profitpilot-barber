@@ -1,0 +1,10 @@
+{
+  "name": "profitpilot-barber",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shows a small barber shop owner which services, days and barbers actually make money. Runs entirely in the browser.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

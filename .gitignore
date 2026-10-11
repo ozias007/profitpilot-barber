@@ -1,0 +1,10 @@
+/devpost/learner-profile.md
+.env
+.env.*
+!.env.example
+
+# real exports dropped in the project root are never committed (examples/ is tracked)
+/*.csv
+/*.pdf
+/*.xlsx
+/.ref/
