@@ -1,9 +1,10 @@
-// Dashboard: prd.md > Dashboard. Tips (Quick Insights, What to do next) arrive with core/tips.js.
+// Dashboard: prd.md > Dashboard, with the tips from core/tips.js (prd.md > Tips).
 
 import { formatR, formatR2, formatNum, pct } from "../../core/money.js";
 import { change, costItems } from "../../core/month.js";
 import { esc, tile, icon, tipAttr, changeBadge, colorAt, serviceIcon } from "../ui/dom.js";
 import { heatmap, moneyBar } from "../ui/charts.js";
+import { allTips, pickDashboardTips, nextStep } from "../../core/tips.js";
 
 export const title = (ctx) => [`${greeting()}, ${ctx.data.profile.greet || "Boss"}! 👋`, `Here's how your shop performed in ${ctx.label}.`];
 
@@ -12,7 +13,14 @@ function greeting() {
   return h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening";
 }
 
+/** One tip row: icon, title, explanation and where to act. Shared with the Costs and Barbers pages. */
+export function tipRow(t) {
+  const link = t.link ? ` <button class="linkbtn" data-goto="${t.link.goto}">${esc(t.link.label)}</button>` : "";
+  return `<div class="in">${tile(t.icon, t.color)}<div><b>${esc(t.title)}</b><span>${esc(t.text)}${link}</span></div></div>`;
+}
+
 export function render({ s, p }) {
+  const picked = pickDashboardTips(allTips(s, p));
   const kept = s.kept == null
     ? `<span class="hint">Add your costs to see money kept</span><button class="linkbtn" data-goto="costs/edit">Add costs →</button>`
     : `<strong class="n">${formatR(s.kept)}</strong><span class="sub">out of ${formatR(s.salesCents)} taken in</span>
@@ -39,10 +47,12 @@ export function render({ s, p }) {
    </section>
    <section class="card"><h2>Busy Hours <small>average cuts an hour, by weekday</small></h2>${heatmap(s.heat)}</section>
    <section class="card" style="background:color-mix(in oklab,var(--green-wash) 55%,var(--surface))"><h2 style="justify-content:flex-start;gap:10px">${icon("i-bulb", 'style="width:18px;height:18px;color:var(--green)"')}Quick Insights</h2>
-    <p class="empty-note">Tips are worked out from your numbers. They appear here in the next build step.</p></section>
+    <div class="ins">${picked.steady
+      ? `<div class="in">${tile("i-shield", "green")}<div><b>Nothing needs your attention this month.</b><span>Steady month.</span></div></div>`
+      : picked.dashboard.map(tipRow).join("")}</div></section>
   </div>
   <div class="grid c2 mt">
    <section class="card money">${tile("i-bulb", "blue")}<div class="mbar"><b>Where the money went <button class="linkbtn" data-goto="costs/edit">Edit costs →</button></b>${moneyBar(items, s.costTotal)}</div></section>
-   <section class="card next">${tile("i-shield", "orange")}<div><b>What to do next</b><p>Your most useful next step will show here once tips are switched on.</p></div></section>
+   <section class="card next">${tile("i-shield", "orange")}<div><b>What to do next</b><p>${esc(nextStep(picked))}</p></div></section>
   </div>`;
 }

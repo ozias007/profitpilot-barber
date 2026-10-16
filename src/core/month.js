@@ -68,7 +68,8 @@ export function summarise(key, monthData, services, barbers) {
       count: cutRows.length,
       salesCents: svcSales,
       mins: svcMins,
-      avgCents: cutRows.length ? svcSales / cutRows.length : s.priceCents,
+      // average actually charged per cut (free cuts count at R0; refunds are not a price, so they're left out)
+      avgCents: cutRows.length ? cutRows.reduce((a, r) => a + r[PRICE], 0) / cutRows.length : s.priceCents,
       listPerMin,
       // actual charged ÷ actual minutes; list price ÷ list minutes when nothing sold
       perMin: svcMins ? svcSales / svcMins : listPerMin,

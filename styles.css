@@ -294,3 +294,6 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 .step .row>b{min-width:10rem}
 .step .row label{display:inline-flex;gap:6px;align-items:center;font-size:.86rem;font-weight:600}
 .step .actions{display:flex;gap:10px;flex-wrap:wrap}
+/* the reference's day labels collide when the heatmap card is narrowest (3-column dashboard, 1201–1500px): use Mo, Tu… there */
+.heat .ds{display:none}
+@media (min-width:1201px) and (max-width:1500px){.heat .dl{display:none}.heat .ds{display:inline}}

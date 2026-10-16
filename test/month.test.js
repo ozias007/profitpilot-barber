@@ -108,3 +108,10 @@ test("change and previousKey", () => {
   assert.equal(previousKey(["2026-10", "2026-09"], "2026-10"), "2026-09");
   assert.equal(previousKey(["2026-10"], "2026-10"), null);
 });
+
+test("average charged leaves refunds out but counts free cuts at R0", () => {
+  const fade = s.bySvc.find((x) => x.id === "fade");
+  assert.equal(fade.avgCents, (12000 + 10000) / 2); // the −R120 refund is not a price
+  const kids = s.bySvc.find((x) => x.id === "kids");
+  assert.equal(kids.avgCents, (7000 + 0 + 7000) / 3);
+});

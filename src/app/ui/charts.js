@@ -11,7 +11,7 @@ export const heatColor = (v) => (v < 1.2 ? "--heat-q" : v < 2 ? "--heat-m" : v <
 
 /** Busy Hours grid: rows are time slots, columns Mon–Sun. heat is [weekday][slot]. */
 export function heatmap(heat) {
-  const head = `<span></span>${DAY_LABELS.map((d) => `<span class="h">${d}</span>`).join("")}`;
+  const head = `<span></span>${DAY_LABELS.map((d) => `<span class="h"><span class="dl">${d}</span><span class="ds" aria-hidden="true">${d.slice(0, 2)}</span></span>`).join("")}`;
   const rows = SLOTS.map((slot, si) =>
     `<span style="align-self:center;white-space:nowrap">${slot}</span>` +
     DAY_LABELS.map((d, di) => {

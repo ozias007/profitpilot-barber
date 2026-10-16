@@ -152,7 +152,7 @@ export function exampleOctoberCsv() {
     lines.push(`${pad(d)}/10/2026;${hhmm(t)};${b};${service};${money(cents)};${mins};${CUSTOMERS[Math.floor(r() * CUSTOMERS.length)]}`);
 
   for (const [d, t, b, s, p, m] of generateSales(2026, 10, { seed: 22, busy: 1.2 })) {
-    if (s === "fade") row(d, t, names[b], "Fade", r() < 0.4 ? 9000 : 12000, r() < 0.5 ? 35 : 36); // discounts and quicker fades
+    if (s === "fade") row(d, t, names[b], "Fade", r() < 0.45 ? 9000 : 12000, r() < 0.5 ? 35 : 36); // discounts and quicker fades
     else row(d, t, names[b], names[s], p, m);
   }
   [[7, 15 * 60, "Lerato"], [14, 16 * 60, "Jason"], [21, 15 * 60 + 30, "Sizwe"]].forEach(([d, t, b]) => row(d, t, b, "Kids Cut", 0, 25)); // free cuts

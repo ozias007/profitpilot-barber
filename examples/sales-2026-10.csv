@@ -85,7 +85,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 03/10/2026;17:00;Thabo;Chiskop;R 80,00;15;K. Molefe
 03/10/2026;17:30;Lerato;Fade;R 120,00;35;P. Zulu
 03/10/2026;18:00;Nathi;Fade;R 90,00;35;T. Nkosi
-03/10/2026;19:30;Nathi;Fade;R 120,00;36;T. Nkosi
+03/10/2026;19:30;Nathi;Fade;R 90,00;36;T. Nkosi
 03/10/2026;19:00;Thabo;Chiskop;R 80,00;15;B. Khumalo
 04/10/2026;08:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
 04/10/2026;09:30;Jason;Fade;R 120,00;36;A. van Wyk
@@ -201,7 +201,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 09/10/2026;19:00;Thabo;Other;R 100,00;30;L. Mokoena
 10/10/2026;08:00;Thabo;Fade;R 90,00;35;T. Nkosi
 10/10/2026;08:30;Thabo;Fade;R 120,00;35;N. Dube
-10/10/2026;08:00;Sizwe;Fade;R 120,00;36;T. Nkosi
+10/10/2026;08:00;Sizwe;Fade;R 90,00;36;T. Nkosi
 10/10/2026;09:00;Lerato;Chiskop;R 80,00;15;B. Khumalo
 10/10/2026;09:00;Sizwe;Kids Cut;R 70,00;25;P. Zulu
 10/10/2026;09:30;Thabo;Chiskop;R 80,00;15;P. Zulu
@@ -209,7 +209,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 10/10/2026;10:30;Lerato;Fade;R 120,00;36;T. Nkosi
 10/10/2026;10:00;Thabo;Kids Cut;R 70,00;25;K. Molefe
 10/10/2026;10:30;Nathi;Beard Trim;R 70,00;20;B. Khumalo
-10/10/2026;10:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
+10/10/2026;10:00;Sizwe;Fade;R 90,00;36;S. Ndlovu
 10/10/2026;10:00;Nathi;Fade;R 120,00;36;A. van Wyk
 10/10/2026;11:30;Sizwe;Other;R 100,00;30;T. Nkosi
 10/10/2026;11:30;Lerato;Chiskop;R 80,00;15;B. Khumalo
@@ -249,7 +249,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 11/10/2026;12:30;Thabo;Fade;R 90,00;36;P. Zulu
 11/10/2026;12:30;Lerato;Fade;R 90,00;36;A. van Wyk
 11/10/2026;13:30;Thabo;Chiskop;R 80,00;15;P. Zulu
-11/10/2026;13:00;Thabo;Fade;R 120,00;35;A. van Wyk
+11/10/2026;13:00;Thabo;Fade;R 90,00;35;A. van Wyk
 11/10/2026;14:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
 11/10/2026;14:30;Thabo;Hair Design;R 150,00;50;T. Nkosi
 11/10/2026;15:00;Thabo;Beard Trim;R 70,00;20;T. Nkosi
@@ -260,7 +260,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 12/10/2026;12:30;Jason;Kids Cut;R 70,00;25;B. Khumalo
 12/10/2026;13:00;Jason;Fade;R 120,00;35;K. Molefe
 12/10/2026;14:30;Nathi;Kids Cut;R 70,00;25;A. van Wyk
-12/10/2026;15:30;Nathi;Fade;R 120,00;35;T. Nkosi
+12/10/2026;15:30;Nathi;Fade;R 90,00;35;T. Nkosi
 12/10/2026;16:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
 12/10/2026;16:00;Sizwe;Fade;R 90,00;36;B. Khumalo
 12/10/2026;17:30;Nathi;Hair Design;R 150,00;50;N. Dube
@@ -271,7 +271,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 13/10/2026;09:30;Sizwe;Fade;R 120,00;36;P. Zulu
 13/10/2026;10:30;Jason;Fade;R 90,00;36;N. Dube
 13/10/2026;11:30;Lerato;Fade;R 120,00;36;N. Dube
-13/10/2026;12:30;Jason;Fade;R 120,00;36;P. Zulu
+13/10/2026;12:30;Jason;Fade;R 90,00;36;P. Zulu
 13/10/2026;13:00;Sizwe;Other;R 100,00;30;B. Khumalo
 13/10/2026;14:00;Thabo;Fade;R 120,00;35;L. Mokoena
 13/10/2026;15:30;Sizwe;Fade;R 90,00;36;K. Molefe
@@ -294,7 +294,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 14/10/2026;17:30;Thabo;Other;R 100,00;30;N. Dube
 14/10/2026;18:00;Thabo;Chiskop;R 80,00;15;A. van Wyk
 14/10/2026;18:00;Lerato;Chiskop;R 80,00;15;N. Dube
-14/10/2026;19:00;Thabo;Fade;R 120,00;35;P. Zulu
+14/10/2026;19:00;Thabo;Fade;R 90,00;35;P. Zulu
 15/10/2026;08:30;Thabo;Kids Cut;R 70,00;25;K. Molefe
 15/10/2026;09:30;Sizwe;Chiskop;R 80,00;15;A. van Wyk
 15/10/2026;10:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
@@ -306,7 +306,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 15/10/2026;15:00;Thabo;Hair Design;R 150,00;50;T. Nkosi
 15/10/2026;16:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
 15/10/2026;16:00;Nathi;Fade;R 120,00;36;P. Zulu
-15/10/2026;17:00;Lerato;Fade;R 120,00;35;T. Nkosi
+15/10/2026;17:00;Lerato;Fade;R 90,00;35;T. Nkosi
 15/10/2026;17:00;Nathi;Hair Design;R 150,00;50;T. Nkosi
 15/10/2026;17:00;Jason;Kids Cut;R 70,00;25;A. van Wyk
 15/10/2026;18:00;Sizwe;Chiskop;R 80,00;15;L. Mokoena
@@ -362,7 +362,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 17/10/2026;12:00;Nathi;Chiskop;R 80,00;15;S. Ndlovu
 17/10/2026;12:30;Thabo;Other;R 100,00;30;T. Nkosi
 17/10/2026;12:00;Lerato;Kids Cut;R 70,00;25;B. Khumalo
-17/10/2026;12:30;Jason;Fade;R 120,00;36;A. van Wyk
+17/10/2026;12:30;Jason;Fade;R 90,00;36;A. van Wyk
 17/10/2026;13:00;Nathi;Chiskop;R 80,00;15;A. van Wyk
 17/10/2026;13:00;Sizwe;Fade;R 90,00;35;K. Molefe
 17/10/2026;13:00;Lerato;Hair Design;R 150,00;50;P. Zulu
@@ -387,7 +387,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 18/10/2026;11:30;Thabo;Beard Trim;R 70,00;20;A. van Wyk
 18/10/2026;11:30;Nathi;Fade;R 120,00;36;K. Molefe
 18/10/2026;12:00;Thabo;Beard Trim;R 70,00;20;K. Molefe
-18/10/2026;12:30;Sizwe;Fade;R 120,00;36;L. Mokoena
+18/10/2026;12:30;Sizwe;Fade;R 90,00;36;L. Mokoena
 18/10/2026;13:00;Thabo;Chiskop;R 80,00;15;K. Molefe
 18/10/2026;13:00;Thabo;Fade;R 90,00;35;P. Zulu
 18/10/2026;14:00;Jason;Hair Design;R 150,00;50;P. Zulu
@@ -495,7 +495,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 24/10/2026;10:00;Lerato;Chiskop;R 80,00;15;K. Molefe
 24/10/2026;10:30;Sizwe;Kids Cut;R 70,00;25;L. Mokoena
 24/10/2026;10:00;Sizwe;Kids Cut;R 70,00;25;P. Zulu
-24/10/2026;10:30;Jason;Fade;R 120,00;35;T. Nkosi
+24/10/2026;10:30;Jason;Fade;R 90,00;35;T. Nkosi
 24/10/2026;10:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
 24/10/2026;11:30;Thabo;Chiskop;R 80,00;15;K. Molefe
 24/10/2026;11:00;Lerato;Kids Cut;R 70,00;25;L. Mokoena
@@ -556,14 +556,14 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 26/10/2026;15:30;Thabo;Fade;R 90,00;35;L. Mokoena
 26/10/2026;16:30;Lerato;Chiskop;R 80,00;15;N. Dube
 26/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;B. Khumalo
-26/10/2026;17:00;Lerato;Fade;R 120,00;36;N. Dube
+26/10/2026;17:00;Lerato;Fade;R 90,00;36;N. Dube
 26/10/2026;17:00;Sizwe;Other;R 100,00;30;B. Khumalo
 26/10/2026;18:00;Lerato;Other;R 100,00;30;T. Nkosi
 26/10/2026;18:30;Sizwe;Fade;R 120,00;36;N. Dube
 26/10/2026;19:00;Sizwe;Fade;R 90,00;35;K. Molefe
 27/10/2026;08:30;Jason;Chiskop;R 80,00;15;B. Khumalo
 27/10/2026;09:00;Lerato;Chiskop;R 80,00;15;K. Molefe
-27/10/2026;10:30;Nathi;Fade;R 120,00;36;T. Nkosi
+27/10/2026;10:30;Nathi;Fade;R 90,00;36;T. Nkosi
 27/10/2026;11:30;Jason;Fade;R 120,00;35;K. Molefe
 27/10/2026;12:00;Thabo;Chiskop;R 80,00;15;T. Nkosi
 27/10/2026;12:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
@@ -598,7 +598,7 @@ Date;Time;Staff;Service;Amount;Minutes;Customer
 28/10/2026;15:30;Jason;Fade;R 90,00;36;L. Mokoena
 28/10/2026;15:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
 28/10/2026;16:30;Sizwe;Chiskop;R 80,00;15;N. Dube
-28/10/2026;16:30;Jason;Fade;R 120,00;36;A. van Wyk
+28/10/2026;16:30;Jason;Fade;R 90,00;36;A. van Wyk
 28/10/2026;17:00;Lerato;Fade;R 90,00;36;A. van Wyk
 28/10/2026;17:30;Lerato;Fade;R 120,00;36;B. Khumalo
 28/10/2026;18:00;Lerato;Fade;R 120,00;35;L. Mokoena
