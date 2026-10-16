@@ -169,7 +169,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
 ## Hands-on Checkpoints
 
 - [x] Early usable behavior explored — after slice 4: import the example sheet and your own messy CSV, read the Dashboard and tips, and give feedback while Costs, Barbers and Sales are still to come
-- [ ] Final kick-the-tires exploration and feedback completed
+- [x] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
 
@@ -192,21 +192,26 @@ Verified at 1600, 1440, 1280, 1100, 1024, 768 and 390px:
 - the down arrow appears on decreases;
 - "Saturday mornings full" appears on the Dashboard only (with the clock set to 2 November).
 
-Waiting for the learner to retry these and confirm readiness.
+The learner retried all seven in the browser and confirmed the proof of concept is ready.
 
-- [ ] Final review complete — feedback resolved and learner confirms ready to ship
+- [x] Final review complete — feedback resolved and learner confirms ready to ship
 
 ## Code Tour and App Map
 
-- [ ] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
-- [ ] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
-- [ ] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
+- [x] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
+- [x] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
+- [x] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
 
-Activity and evidence:
-Route and stops:
-Edit outcome:
-Reflection:
-Activity mode:
+Activity and evidence: Prior practice connected to the CSV-parsing goal. During the slice 2 and 3 checks the learner imported their own deliberately messy CSV:
+- semicolons and a quoted semicolon;
+- `R 120,00`, `(120,00)`, `1.200,00`, `abc` and `12000`;
+- an impossible date, a new barber, and customer and phone columns.
+
+That surfaced a real gap: a new service whose only sale was free got a R0 list price, which blocked the import. It's now fixed, with the test `test/importer.test.js` → "a new service whose only sales were free cuts can still be imported", plus named per-row skip reasons and step errors. No separate tour was repeated.
+Route and stops: A reference route (not toured live) is in the app map: `src/app/views/import.js` `begin()` → `src/core/importer.js` `importSales()` (`parseCsv`, `parsePrice`, `checkStepAnswers`, `applyImport`) → `src/app/main.js` `update()` → `store.save()` and `summarise()`.
+Edit outcome: Not applicable. The hands-on practice was the learner's own messy-file testing during the build.
+Reflection: Offered once ("What would you do differently next time you start with an agent?"), optional.
+Activity mode: Prior practice connected, plus the app map. The map was checked in the browser: offline, no scripts or external links, no sideways scroll at 390px.
 
 ## Revisions
 

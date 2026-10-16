@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProfitPilot Barber · App Map</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#0f172a;--muted:#5b6680;--line:#e2e7f0;--brand:#2563eb;--wash:#e8f0ff;--code:#eef2f8;--ok:#15803d;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1120;--card:#131b2f;--ink:#eef2fb;--muted:#9aa5bf;--line:#253049;--brand:#7ea2ff;--wash:#18264a;--code:#0f1729;--ok:#4ade80;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 18px 48px}
+h1{font-size:1.7rem;margin:0 0 4px;letter-spacing:-.01em}
+h2{font-size:1.1rem;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 22px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+code{font:13px/1.4 ui-monospace,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+pre{background:var(--code);border-radius:10px;padding:10px 12px;overflow-x:auto;font:13px/1.5 ui-monospace,Consolas,monospace;margin:8px 0 0}
+ol.route{padding-left:0;list-style:none;margin:0;display:grid;gap:12px}
+ol.route li{border-left:3px solid var(--brand);padding:2px 0 2px 14px}
+ol.route b{display:block}
+.pieces{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.pieces li{background:var(--wash);border-radius:10px;padding:10px 12px}
+.diagram{overflow-x:auto}
+.diagram svg{display:block;min-width:620px;width:100%;height:auto}
+.diagram text{fill:var(--ink);font:12px system-ui,sans-serif}
+.diagram .small{fill:var(--muted);font-size:10.5px}
+.diagram rect{fill:var(--card);stroke:var(--brand);stroke-width:1.5}
+.diagram rect.store{stroke:var(--ok)}
+.diagram path{fill:none;stroke:var(--muted);stroke-width:1.5}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td{border-top:1px solid var(--line);padding:8px 6px;vertical-align:top}
+td:first-child{width:42%}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--brand);font-weight:600}
+summary:focus-visible,a:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:4px}
+.note{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<h1>ProfitPilot Barber · App Map</h1>
+<p class="lead">A short guide to where things live, so the next change starts in the right file.</p>
+
+<section aria-labelledby="what">
+<h2 id="what">What it is</h2>
+<p>A dashboard for a small barber shop owner. It shows money kept, earnings per chair-minute, busy hours, where the money went and plain-language tips, all from a month of sales imported as a CSV. Everything runs in the browser and is saved on the device; nothing is uploaded.</p>
+<ul class="pieces">
+ <li><b>The core:</b> <code>src/core/</code>. Pure functions for money, CSV reading, the month maths, tips, the planner, reports and reminders. No screen, no storage. Every function is covered by <code>test/</code>.</li>
+ <li><b>The app:</b> <code>src/app/</code>. The screens (<code>views/</code>), the shared UI pieces (<code>ui/</code>), routing, and the single update cycle in <code>main.js</code>.</li>
+ <li><b>Saving:</b> <code>src/app/store.js</code>. One JSON document in <code>localStorage</code> under <code>profitpilot-barber.v1</code>.</li>
+</ul>
+</section>
+
+<section aria-labelledby="flow">
+<h2 id="flow">One action, end to end: importing a CSV</h2>
+<div class="diagram" role="img" aria-label="Diagram: a CSV file goes through begin() in import.js, then importSales() in importer.js (which uses parseCsv and parsePrice), then the New in this file step, then update() in main.js, which saves to localStorage, recalculates with summarise(), and redraws the Dashboard.">
+<svg viewBox="0 0 640 210" aria-hidden="true">
+ <rect x="8" y="20" width="110" height="52" rx="8"/><text x="63" y="42" text-anchor="middle">CSV file</text><text x="63" y="59" text-anchor="middle" class="small">read on the device</text>
+ <rect x="150" y="20" width="140" height="52" rx="8"/><text x="220" y="42" text-anchor="middle">begin()</text><text x="220" y="59" text-anchor="middle" class="small">views/import.js</text>
+ <rect x="322" y="20" width="150" height="52" rx="8"/><text x="397" y="42" text-anchor="middle">importSales()</text><text x="397" y="59" text-anchor="middle" class="small">parseCsv · parsePrice</text>
+ <rect x="504" y="20" width="128" height="52" rx="8"/><text x="568" y="42" text-anchor="middle">New in this file</text><text x="568" y="59" text-anchor="middle" class="small">checkStepAnswers()</text>
+ <rect x="410" y="132" width="140" height="52" rx="8"/><text x="480" y="154" text-anchor="middle">update()</text><text x="480" y="171" text-anchor="middle" class="small">app/main.js</text>
+ <rect class="store" x="230" y="132" width="140" height="52" rx="8"/><text x="300" y="154" text-anchor="middle">localStorage</text><text x="300" y="171" text-anchor="middle" class="small">store.save()</text>
+ <rect x="30" y="132" width="160" height="52" rx="8"/><text x="110" y="154" text-anchor="middle">Dashboard numbers</text><text x="110" y="171" text-anchor="middle" class="small">summarise() → render</text>
+ <path d="M118 46H150M290 46H322M472 46H504"/><path d="M568 72V104H480V132"/><path d="M410 158H370"/><path d="M230 158H190"/>
+</svg>
+</div>
+<p class="note">Sample months and example sheets come from <code>src/core/sample.js</code> and follow the same route.</p>
+</section>
+
+<section aria-labelledby="route">
+<h2 id="route">The route, three stops</h2>
+<p class="note">A reference route through the current code, so you can follow one import by searching for these names.</p>
+<ol class="route">
+ <li><b>1. The screen starts the import: <code>src/app/views/import.js</code> → <code>begin()</code></b>
+  Reads the file's text, runs the importer, and decides which step comes next: "Replace them with this file?" for a month that's already stored, then "New in this file" for new names and prices over R5 000.</li>
+ <li><b>2. The file becomes sales: <code>src/core/importer.js</code> → <code>importSales()</code></b>
+  Uses <code>parseCsv()</code> (<code>src/core/csv.js</code>: separator detection, quoted fields, real line numbers) and <code>parsePrice()</code> (<code>src/core/money.js</code>: "R 1 200,00", "(120.00)", the decimal rule). Only the six known columns are ever read. Then <code>checkStepAnswers()</code> and <code>applyImport()</code> turn the owner's answers into the saved document.
+  <details><summary>The price rule in one comment</summary><pre>// The last "," or "." followed by exactly 1–2 digits is the decimal mark;
+// every other "," or "." is a thousands separator.
+// "1,200" → 1200, "120,5" → 120.50, "1.200,00" → 1200</pre></details></li>
+ <li><b>3. Save, recalculate, redraw: <code>src/app/main.js</code> → <code>update()</code></b>
+  Every change in the app goes through here: <code>store.save()</code>, then <code>summarise()</code> (<code>src/core/month.js</code>) for each month, then the current page redraws. Money is in cents throughout, which is why a R760 edit moves Money Kept by exactly R760.</li>
+</ol>
+</section>
+
+<section aria-labelledby="change">
+<h2 id="change">To change this, start here</h2>
+<table>
+ <tr><td>A tip's threshold (15%, R200, 10 sales, 3 cuts an hour…)</td><td><code>RULES</code> in <code>src/core/tips.js</code>, then the boundary tests in <code>test/tips.test.js</code></td></tr>
+ <tr><td>Which CSV headings are recognised</td><td><code>ALIASES</code> in <code>src/core/importer.js</code></td></tr>
+ <tr><td>The "please check" limit for one sale (R5 000)</td><td><code>CHECK_ABOVE_CENTS</code> in <code>src/core/importer.js</code></td></tr>
+ <tr><td>The Price Planner's maths</td><td><code>planPrice()</code> in <code>src/core/planner.js</code></td></tr>
+ <tr><td>Sample shop, example sheets, example costs</td><td><code>sampleData()</code> and <code>EXAMPLE_COSTS</code> in <code>src/core/sample.js</code>, then <code>node scripts/make-examples.mjs</code></td></tr>
+ <tr><td>Colours, light/dark, layout</td><td>The tokens at the top of <code>styles.css</code>; print layout in <code>print.css</code></td></tr>
+ <tr><td>What is saved and under which key</td><td><code>KEY</code> and <code>save()</code> in <code>src/app/store.js</code></td></tr>
+</table>
+</section>
+
+<section aria-labelledby="practice">
+<h2 id="practice">A practice to reuse</h2>
+<p><b>Try a deliberately messy real-shaped file, then lock what it finds into a test.</b> The parser's unit tests passed, but importing a hand-made messy CSV during the slice 3 check found a gap. A new service whose only sale was a free cut was pre-filled with a R0 list price, which blocked the import. The fix came with a test that keeps it fixed: <code>test/importer.test.js</code> → "a new service whose only sales were free cuts can still be imported".</p>
+<p>On another project with outside data (bank statements, booking exports, spreadsheets from a client), keep one ugly sample file next to the code. Run it before calling the import done, and turn each surprise into a named test.</p>
+</section>
+
+<section aria-labelledby="run">
+<h2 id="run">Run it again</h2>
+<pre>npm start      # http://localhost:8000
+npm test       # all the maths and parsing tests</pre>
+<p class="note">This map is a snapshot of commit <code>2c80533</code> (16 October 2026). Names and paths can drift as the code changes; search for the function names if a line has moved.</p>
+</section>
+</main>
+</body>
+</html>
