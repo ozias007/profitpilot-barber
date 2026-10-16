@@ -9,13 +9,14 @@ import { WIDTH_CHARTS } from "./ui/charts.js";
 import * as dashboard from "./views/dashboard.js";
 import * as reports from "./views/reports.js";
 import * as costs from "./views/costs.js";
+import * as barbers from "./views/barbers.js";
 import { placeholder } from "./views/placeholder.js";
 
 const VIEWS = {
   dash: dashboard,
   sales: placeholder("sales"),
   costs,
-  barbers: placeholder("barbers"),
+  barbers,
   reports,
   settings: placeholder("settings"),
 };
@@ -120,6 +121,15 @@ function start() {
   document.addEventListener("click", (e) => {
     const t = e.target.closest("[data-goto]");
     if (t) { const [v, s] = t.dataset.goto.split("/"); go(v, s); }
+  });
+
+  // "please check" badges on imported names: tapping one marks that service or barber as checked
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-confirm]");
+    if (!t) return;
+    const [kind, id] = t.dataset.confirm.split(":");
+    update((d) => { const item = (kind === "barber" ? d.barbers : d.services).find((x) => x.id === id); if (item) item.confirmed = true; });
+    toast("Marked as checked");
   });
 
   $("avatar").addEventListener("click", () => go("settings"));

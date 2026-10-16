@@ -99,7 +99,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   Learner check: With the example sheet loaded, set October electricity to 2760 and watch Money Kept and the alert. Add and remove "Security 450". Did every number move by exactly what you typed?
   Commit: `Add Costs section with editing and cost-jump alert`
 
-- [ ] **6. Barbers: commission you can set and check**
+- [x] **6. Barbers: commission you can set and check**
   Becomes usable:
   - The Barbers section with the Overview, Performance and Commission tabs, and its three tiles.
   - Editable rates (0–100), Add a barber (no duplicates), and "please check" badges for unconfirmed barbers.
@@ -216,4 +216,5 @@ Activity mode:
   The `prd.md > Tips` table and acceptance were updated. The test is in `tips.test.js`.
 - Donut legends stack under the donut whenever their card is narrower than 560px, using a CSS container query. At about 1280px the reference's own legend overlaps ("Commission" runs into its percentage, and the warning icon covers "Electricity").
 - Costs: adding a cost whose name is already on the list (ignoring case) is refused with "Electricity is already on the list. Change its amount above." The PRD didn't cover duplicates.
+- "Please check" badges on Barbers (and later Services) are buttons: tapping one marks that imported name as checked. Editing a barber's rate also counts as checking it. A new barber added by hand starts with the shop's most common rate.
 

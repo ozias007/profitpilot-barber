@@ -127,3 +127,15 @@ test("costs: +R760 electricity lowers kept by exactly R760; adding then removing
   assert.equal(withSecurity.costTotal - up.costTotal, 45000); // the total moves with it; commission doesn't
   assert.equal(withSecurity.commission, up.commission);
 });
+
+test("barbers: 11% → 12% changes commission by exactly 1% of that barber's sales (to the rand), and kept the other way", () => {
+  const big = [[3, 540, "thabo", "fade", 1234500, 40], [4, 600, "nathi", "kids", 700000, 25]];
+  const at11 = summarise("2026-10", { sales: big, costs: { Rent: 100000 } }, services, barbers);
+  const at12 = summarise("2026-10", { sales: big, costs: { Rent: 100000 } }, services, [{ ...barbers[0], ratePct: 12 }, barbers[1]]);
+  const thabo11 = at11.byBarber.find((b) => b.id === "thabo"), thabo12 = at12.byBarber.find((b) => b.id === "thabo");
+  assert.equal(thabo11.commissionCents, 135800); // R12 345 × 11% = R1 357.95 → R1 358
+  assert.equal(thabo12.commissionCents, 148100); // R12 345 × 12% = R1 481.40 → R1 481
+  assert.equal(thabo12.commissionCents - thabo11.commissionCents, 12300); // 1% of R12 345, to the rand
+  assert.equal(at11.kept - at12.kept, 12300);
+  assert.equal(at12.byBarber.find((b) => b.id === "nathi").commissionCents, at11.byBarber.find((b) => b.id === "nathi").commissionCents);
+});
