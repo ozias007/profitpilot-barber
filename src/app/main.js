@@ -5,6 +5,7 @@ import { summarise, previousKey, monthLabel } from "../core/month.js";
 import { SECTIONS, currentRoute, go, onRouteChange } from "./router.js";
 import { esc, icon, bindTips, toast } from "./ui/dom.js";
 import * as dashboard from "./views/dashboard.js";
+import * as reports from "./views/reports.js";
 import { placeholder } from "./views/placeholder.js";
 
 const VIEWS = {
@@ -12,7 +13,7 @@ const VIEWS = {
   sales: placeholder("sales"),
   costs: placeholder("costs"),
   barbers: placeholder("barbers"),
-  reports: placeholder("reports"),
+  reports,
   settings: placeholder("settings"),
 };
 

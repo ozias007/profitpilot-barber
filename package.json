@@ -5,6 +5,7 @@
   "description": "Shows a small barber shop owner which services, days and barbers actually make money. Runs entirely in the browser.",
   "type": "module",
   "scripts": {
+    "start": "node scripts/serve.mjs",
     "test": "node --test"
   }
 }

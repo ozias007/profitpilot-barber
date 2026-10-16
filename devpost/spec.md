@@ -66,11 +66,11 @@ Learner's choice: plain HTML/CSS/JS like the reference. The reasons are Sipho's 
 
 ## Where It Runs and How Someone Tries It
 
-**Locally:** ES modules don't load from `file://`, so serve the folder:
+**Locally:** ES modules don't load from `file://`, so serve the folder with the project's tiny no-dependency server:
 ```
-python -m http.server 8000
+npm start
 ```
-then open <http://localhost:8000>. Python is already installed. `npx serve` works too, but it downloads a package.
+then open <http://localhost:8000>. It disables browser caching so code changes show on reload, listens on this computer only (`HOST=0.0.0.0 npm start` opens it to your Wi-Fi for a phone test), and never serves `devpost/learner-profile.md`. *Changed during the build from `python -m http.server`, which cached old files.*
 
 **Tests:**
 ```

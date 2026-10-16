@@ -9,7 +9,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
 
 ## Slices
 
-- [ ] **1. Open ProfitPilot and see the sample month's Dashboard**
+- [x] **1. Open ProfitPilot and see the sample month's Dashboard**
   Becomes usable:
   - The app runs locally and shows the full app frame from the design: sidebar, top bar with the month selector and shop name, light/dark toggle, and the phone slide-in menu.
   - The Dashboard is drawn from the sample months: Money Kept, Total Sales, Chair Time and Total Costs tiles with "vs last month"; Top Services by R/min; the Busy Hours heatmap; Where the money went.
@@ -23,11 +23,11 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   - Build the app frame, hash router, theme toggle, the Dashboard tiles and cards, and the shared tooltip and toast helpers.
   Verify (mechanical):
   - `npm test` passes `money.test.js` and `month.test.js`. They hand-check money kept, commission rounding, R/min (actual, and the list fallback for 0 sales), heatmap cell maths, and `compare()` with no previous month.
-  - Serve with `python -m http.server 8000` and load it in a headless browser at 1280px and 390px, in light and dark: no console errors; the Dashboard numbers match a `month.js` run on the same sample data; the phone menu opens and closes.
-  Learner check: Run `python -m http.server 8000`, open http://localhost:8000, and compare the Dashboard side by side with `profitpilot-dashboard.html`. Flip dark mode, narrow the window to phone width, and open the menu. Does it look like the design?
+  - Serve with `npm start` and load it in a headless browser at 1280px and 390px, in light and dark: no console errors; the Dashboard numbers match a `month.js` run on the same sample data; the phone menu opens and closes.
+  Learner check: Run `npm start`, open http://localhost:8000, and compare the Dashboard side by side with `profitpilot-dashboard.html`. Flip dark mode, narrow the window to phone width, and open the menu. Does it look like the design?
   Commit: `Add app frame and sample-data Dashboard with tested month maths`
 
-- [ ] **2. Import a CSV and see your own numbers**
+- [x] **2. Import a CSV and see your own numbers**
   Becomes usable:
   - Reports shows the Import card. Sipho picks a CSV (comma or semicolon, quoted fields, header aliases, day-first dates, messy prices) and the Dashboard switches to his month.
   - The sample months disappear and the badge says "Showing your imported data".
@@ -63,6 +63,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   - `store.js` (load, save and clear in try/catch, version check, corrupt-data fallback without overwriting).
   - The single `update()` → save → recalc → render cycle.
   - The "New in this file" step, the in-page replace confirmation, mismatch Update, `costsSource` handling and the banners, and the empty-costs Money Kept state.
+  - **Prices to check (learner feedback at the slice 2 check):** a sale above R5 000 stays out of the totals until confirmed in the "New in this file" step, with two choices: "Keep R12 000" or "It's in cents: R120.00".
   Verify (mechanical):
   - `npm test` passes the importer tests for new names (defaults: most common price, shop's usual rate), mismatches, and copied vs empty costs.
   - In a headless browser:
@@ -187,3 +188,10 @@ Reflection:
 Activity mode:
 
 ## Revisions
+
+- Added `npm start` (`scripts/serve.mjs`, no dependencies, no-cache, localhost only, never serves `learner-profile.md`) as the way to run the app. `python -m http.server` let the browser cache old modules, so code changes didn't show after a reload.
+- `applyImport` (the import → saved-data step) lives in `core/importer.js` rather than the app, so the rules for removing sample data, copying costs and replacing months are unit-tested. The spec put this in the app.
+- The first real import keeps sample services and barbers only when their names appear in the file (with their list settings), and drops the rest, so the made-up shop's barbers don't linger. The PRD didn't say what happens to sample names.
+- Re-importing a month keeps that month's existing costs; only the sales are replaced. The PRD covered sales only, and losing typed costs on a corrected re-import would surprise Sipho.
+- Refunds reduce sales but aren't counted as cuts and use no chair time. The PRD said only that they "reduce sales".
+- At the slice 2 learner check, the import summary gained a plain reason per skipped row ("Row 9: “31/02/2026” isn't a real date.") and a rows-read line ("Read 11 rows: 9 sales, 1 refund, 1 free cut. 2 rows skipped."). Holding back prices above R5 000 until confirmed moved into slice 3. Learner feedback.

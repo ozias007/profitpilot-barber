@@ -28,3 +28,41 @@ test("formatNum and pct", () => {
   assert.equal(pct(25, 200), 12.5);
   assert.equal(pct(5, 0), 0);
 });
+
+import { parsePrice } from "../src/core/money.js";
+
+test("parsePrice: the separator rule", () => {
+  assert.equal(parsePrice("1,200"), 120000); // comma + 3 digits = thousands
+  assert.equal(parsePrice("120,5"), 12050); // comma + 1 digit = decimal
+  assert.equal(parsePrice("1.200,00"), 120000); // European style
+  assert.equal(parsePrice("1,200.00"), 120000); // English style
+  assert.equal(parsePrice("120,00"), 12000);
+  assert.equal(parsePrice("120"), 12000);
+  assert.equal(parsePrice("12000"), 1200000);
+});
+
+test("parsePrice: a leading R and every kind of space", () => {
+  assert.equal(parsePrice("R 1 200,00"), 120000);
+  assert.equal(parsePrice("R1 200.00"), 120000);
+  assert.equal(parsePrice("R1 200,00"), 120000); // no-break space, as Excel exports it
+  assert.equal(parsePrice("R1 200"), 120000); // narrow no-break space
+  assert.equal(parsePrice("  r120 "), 12000);
+});
+
+test("parsePrice: negatives are refunds", () => {
+  assert.equal(parsePrice("-120"), -12000);
+  assert.equal(parsePrice("−120"), -12000); // Unicode minus
+  assert.equal(parsePrice("(120.00)"), -12000); // accounting style
+  assert.equal(parsePrice("R-120"), -12000);
+  assert.equal(parsePrice("-R120"), -12000);
+});
+
+test("parsePrice: zero is a free cut, junk is unreadable", () => {
+  assert.equal(parsePrice("0"), 0);
+  assert.equal(parsePrice("R0,00"), 0);
+  assert.ok(Number.isNaN(parsePrice("")));
+  assert.ok(Number.isNaN(parsePrice("R")));
+  assert.ok(Number.isNaN(parsePrice("free")));
+  assert.ok(Number.isNaN(parsePrice("12a")));
+  assert.ok(Number.isNaN(parsePrice(undefined)));
+});

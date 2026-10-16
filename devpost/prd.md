@@ -131,7 +131,7 @@ Sources: `scope.md > The Unique Kernel`, `scope.md > The POC Boundary`. Learning
 **Messy rows**
 - **Negative price:** treated as a refund. It reduces sales, and the summary shows "2 refunds, −R240".
 - **Zero price:** a free cut. It counts as a cut, uses chair time, earns R0, and is listed ("3 free cuts").
-- **Price above R5 000:** imported, but listed as "please check" (likely a misread number or a cents column). Prices can also be written as `R 1 200,00`, `−120` or `(120.00)`.
+- **Price above R5 000:** left out of the totals until confirmed in the "New in this file" step, with the choices "Keep R12 000" or "It's in cents: R120.00" (changed at the slice 2 learner check). Listed as "please check" (likely a misread number or a cents column). Prices can also be written as `R 1 200,00`, `−120` or `(120.00)`.
 - **Unreadable row** (bad date, no price): skipped, and the summary shows "Skipped 2 rows (row 14, 87)".
 - **New service or barber name:** the **"New in this file"** step appears before the import finishes. New services ask for minutes, plus a list price pre-filled with the most common price in the file. New barbers ask for a commission rate, pre-filled with the shop's usual rate. Defaults carry a "please check" badge until confirmed, both in this step and afterwards on the Services and Commission lists.
 - **Minutes that differ from the list:** each sale keeps the file's minutes. The summary says "Fades took 35 min on average in your file, but your list says 40. Update the list?" with a one-tap **Update**.

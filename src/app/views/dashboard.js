@@ -27,7 +27,7 @@ export function render({ s, p }) {
    <div class="card kpi">${tile("i-wallet", "green")}<div style="flex:1;min-width:0"><small>Money Kept</small>${kept}</div></div>
    <div class="card kpi">${tile("i-scissors", "blue")}<div><small>Total Sales</small><strong class="n">${formatR(s.salesCents)}</strong>${changeBadge(change(s.salesCents, p?.salesCents))}</div></div>
    <div class="card kpi">${tile("i-clock", "purple")}<div><small>Total Chair Time</small><strong class="n">${formatNum(s.mins)} min</strong>${changeBadge(change(s.mins, p?.mins))}</div></div>
-   <div class="card kpi">${tile("i-coins", "orange")}<div><small>Total Costs</small><strong class="n">${formatR(s.costTotal)}</strong><span class="sub">${pct(s.costTotal, s.salesCents).toFixed(1)}% of sales</span></div></div>
+   <div class="card kpi">${tile("i-coins", "orange")}<div><small>Total Costs</small><strong class="n">${formatR(s.costTotal)}</strong><span class="sub">${s.hasCosts ? `${pct(s.costTotal, s.salesCents).toFixed(1)}% of sales` : "commission only, until you add costs"}</span></div></div>
   </div>
   <div class="grid c3 mt">
    <section class="card"><h2>Top Services by Profitability <button class="linkbtn" data-goto="sales/planner">Plan prices →</button></h2>

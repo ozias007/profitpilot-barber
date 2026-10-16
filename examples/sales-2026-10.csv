@@ -1,0 +1,728 @@
+Date;Time;Staff;Service;Amount;Minutes;Customer
+01/10/2026;08:00;Thabo;Chiskop;R 80,00;15;L. Mokoena
+01/10/2026;09:00;Jason;Kids Cut;R 70,00;25;N. Dube
+01/10/2026;10:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+01/10/2026;11:00;Lerato;Fade;R 90,00;36;L. Mokoena
+01/10/2026;12:30;Jason;Beard Trim;R 70,00;20;T. Nkosi
+01/10/2026;13:30;Sizwe;Chiskop;R 80,00;15;L. Mokoena
+01/10/2026;13:00;Lerato;Chiskop;R 80,00;15;N. Dube
+01/10/2026;14:00;Jason;Chiskop;R 80,00;15;P. Zulu
+01/10/2026;14:00;Thabo;Chiskop;R 80,00;15;P. Zulu
+01/10/2026;15:00;Sizwe;Chiskop;R 80,00;15;N. Dube
+01/10/2026;15:00;Thabo;Fade;R 90,00;36;P. Zulu
+01/10/2026;16:30;Lerato;Chiskop;R 80,00;15;K. Molefe
+01/10/2026;16:00;Lerato;Chiskop;R 80,00;15;A. van Wyk
+01/10/2026;17:00;Sizwe;Kids Cut;R 70,00;25;L. Mokoena
+01/10/2026;17:00;Nathi;Beard Trim;R 70,00;20;K. Molefe
+01/10/2026;18:00;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+01/10/2026;18:30;Lerato;Hair Design;R 150,00;50;S. Ndlovu
+01/10/2026;19:00;Jason;Chiskop;R 80,00;15;N. Dube
+01/10/2026;19:00;Sizwe;Chiskop;R 80,00;15;P. Zulu
+02/10/2026;08:30;Sizwe;Fade;R 120,00;35;S. Ndlovu
+02/10/2026;09:30;Lerato;Chiskop;R 80,00;15;S. Ndlovu
+02/10/2026;10:00;Thabo;Fade;R 120,00;35;A. van Wyk
+02/10/2026;11:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+02/10/2026;11:00;Lerato;Other;R 100,00;30;T. Nkosi
+02/10/2026;12:30;Sizwe;Fade;R 120,00;36;L. Mokoena
+02/10/2026;12:00;Nathi;Fade;R 120,00;36;A. van Wyk
+02/10/2026;12:30;Lerato;Fade;R 90,00;36;K. Molefe
+02/10/2026;13:00;Lerato;Beard Trim;R 70,00;20;L. Mokoena
+02/10/2026;13:30;Thabo;Chiskop;R 80,00;15;L. Mokoena
+02/10/2026;14:30;Lerato;Beard Trim;R 70,00;20;K. Molefe
+02/10/2026;14:00;Thabo;Fade;R 90,00;35;T. Nkosi
+02/10/2026;14:00;Lerato;Fade;R 90,00;35;T. Nkosi
+02/10/2026;15:30;Jason;Kids Cut;R 70,00;25;A. van Wyk
+02/10/2026;15:30;Sizwe;Beard Trim;R 70,00;20;S. Ndlovu
+02/10/2026;15:00;Sizwe;Kids Cut;R 70,00;25;T. Nkosi
+02/10/2026;16:30;Jason;Fade;R 120,00;36;N. Dube
+02/10/2026;16:30;Sizwe;Beard Trim;R 70,00;20;A. van Wyk
+02/10/2026;16:00;Sizwe;Fade;R 120,00;36;T. Nkosi
+02/10/2026;16:30;Jason;Fade;R 90,00;36;N. Dube
+02/10/2026;17:00;Jason;Beard Trim;R 70,00;20;P. Zulu
+02/10/2026;17:30;Nathi;Hair Design;R 150,00;50;N. Dube
+02/10/2026;17:30;Sizwe;Fade;R 120,00;36;N. Dube
+02/10/2026;17:00;Nathi;Beard Trim;R 70,00;20;S. Ndlovu
+02/10/2026;18:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+02/10/2026;18:30;Thabo;Other;R 100,00;30;T. Nkosi
+02/10/2026;18:00;Thabo;Chiskop;R 80,00;15;A. van Wyk
+02/10/2026;19:30;Thabo;Fade;R 120,00;36;T. Nkosi
+02/10/2026;19:00;Thabo;Fade;R 90,00;36;L. Mokoena
+03/10/2026;08:00;Lerato;Chiskop;R 80,00;15;P. Zulu
+03/10/2026;08:30;Thabo;Fade;R 120,00;36;K. Molefe
+03/10/2026;08:30;Thabo;Chiskop;R 80,00;15;K. Molefe
+03/10/2026;09:00;Thabo;Fade;R 90,00;35;B. Khumalo
+03/10/2026;09:30;Thabo;Chiskop;R 80,00;15;N. Dube
+03/10/2026;09:30;Jason;Chiskop;R 80,00;15;P. Zulu
+03/10/2026;09:30;Thabo;Fade;R 120,00;36;L. Mokoena
+03/10/2026;10:00;Nathi;Chiskop;R 80,00;15;K. Molefe
+03/10/2026;10:30;Thabo;Kids Cut;R 70,00;25;N. Dube
+03/10/2026;10:00;Lerato;Chiskop;R 80,00;15;N. Dube
+03/10/2026;10:00;Jason;Other;R 100,00;30;S. Ndlovu
+03/10/2026;10:30;Jason;Kids Cut;R 70,00;25;B. Khumalo
+03/10/2026;11:30;Sizwe;Chiskop;R 80,00;15;T. Nkosi
+03/10/2026;11:30;Jason;Other;R 100,00;30;T. Nkosi
+03/10/2026;11:30;Lerato;Beard Trim;R 70,00;20;B. Khumalo
+03/10/2026;11:00;Sizwe;Kids Cut;R 70,00;25;A. van Wyk
+03/10/2026;11:30;Thabo;Beard Trim;R 70,00;20;B. Khumalo
+03/10/2026;12:30;Thabo;Beard Trim;R 70,00;20;S. Ndlovu
+03/10/2026;12:30;Lerato;Fade;R 90,00;36;L. Mokoena
+03/10/2026;12:30;Jason;Fade;R 90,00;36;S. Ndlovu
+03/10/2026;12:00;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+03/10/2026;12:30;Thabo;Chiskop;R 80,00;15;K. Molefe
+03/10/2026;13:00;Thabo;Beard Trim;R 70,00;20;N. Dube
+03/10/2026;13:00;Jason;Beard Trim;R 70,00;20;N. Dube
+03/10/2026;13:30;Lerato;Beard Trim;R 70,00;20;T. Nkosi
+03/10/2026;13:00;Sizwe;Fade;R 90,00;36;P. Zulu
+03/10/2026;14:30;Jason;Fade;R 120,00;36;T. Nkosi
+03/10/2026;14:00;Sizwe;Fade;R 120,00;36;K. Molefe
+03/10/2026;14:00;Thabo;Kids Cut;R 70,00;25;A. van Wyk
+03/10/2026;14:30;Nathi;Fade;R 120,00;35;T. Nkosi
+03/10/2026;15:30;Jason;Chiskop;R 80,00;15;N. Dube
+03/10/2026;15:00;Thabo;Other;R 100,00;30;B. Khumalo
+03/10/2026;16:30;Thabo;Kids Cut;R 70,00;25;A. van Wyk
+03/10/2026;16:30;Thabo;Fade;R 90,00;35;P. Zulu
+03/10/2026;16:00;Thabo;Fade;R 120,00;35;T. Nkosi
+03/10/2026;17:00;Thabo;Chiskop;R 80,00;15;K. Molefe
+03/10/2026;17:30;Lerato;Fade;R 120,00;35;P. Zulu
+03/10/2026;18:00;Nathi;Fade;R 90,00;35;T. Nkosi
+03/10/2026;19:30;Nathi;Fade;R 120,00;36;T. Nkosi
+03/10/2026;19:00;Thabo;Chiskop;R 80,00;15;B. Khumalo
+04/10/2026;08:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+04/10/2026;09:30;Jason;Fade;R 120,00;36;A. van Wyk
+04/10/2026;09:30;Sizwe;Kids Cut;R 70,00;25;P. Zulu
+04/10/2026;10:00;Lerato;Beard Trim;R 70,00;20;K. Molefe
+04/10/2026;10:30;Sizwe;Fade;R 120,00;36;K. Molefe
+04/10/2026;10:00;Thabo;Beard Trim;R 70,00;20;P. Zulu
+04/10/2026;11:00;Thabo;Beard Trim;R 70,00;20;S. Ndlovu
+04/10/2026;11:30;Jason;Other;R 100,00;30;T. Nkosi
+04/10/2026;11:30;Nathi;Chiskop;R 80,00;15;B. Khumalo
+04/10/2026;12:00;Lerato;Chiskop;R 80,00;15;N. Dube
+04/10/2026;12:30;Thabo;Hair Design;R 150,00;50;T. Nkosi
+04/10/2026;13:30;Lerato;Beard Trim;R 70,00;20;S. Ndlovu
+04/10/2026;13:30;Lerato;Hair Design;R 150,00;50;S. Ndlovu
+04/10/2026;14:00;Jason;Chiskop;R 80,00;15;A. van Wyk
+04/10/2026;15:00;Sizwe;Chiskop;R 80,00;15;B. Khumalo
+04/10/2026;16:30;Sizwe;Beard Trim;R 70,00;20;A. van Wyk
+04/10/2026;17:00;Thabo;Chiskop;R 80,00;15;N. Dube
+04/10/2026;18:30;Thabo;Chiskop;R 80,00;15;K. Molefe
+04/10/2026;19:00;Thabo;Chiskop;R 80,00;15;P. Zulu
+05/10/2026;08:30;Sizwe;Chiskop;R 80,00;15;P. Zulu
+05/10/2026;10:30;Nathi;Kids Cut;R 70,00;25;T. Nkosi
+05/10/2026;11:30;Nathi;Chiskop;R 80,00;15;N. Dube
+05/10/2026;12:30;Nathi;Kids Cut;R 70,00;25;P. Zulu
+05/10/2026;13:30;Thabo;Kids Cut;R 70,00;25;B. Khumalo
+05/10/2026;14:00;Sizwe;Beard Trim;R 70,00;20;L. Mokoena
+05/10/2026;15:00;Lerato;Kids Cut;R 70,00;25;A. van Wyk
+05/10/2026;16:30;Sizwe;Chiskop;R 80,00;15;P. Zulu
+05/10/2026;17:00;Thabo;Chiskop;R 80,00;15;N. Dube
+05/10/2026;17:30;Nathi;Chiskop;R 80,00;15;T. Nkosi
+05/10/2026;18:00;Lerato;Kids Cut;R 70,00;25;S. Ndlovu
+06/10/2026;09:30;Thabo;Kids Cut;R 70,00;25;A. van Wyk
+06/10/2026;10:30;Thabo;Fade;R 90,00;36;T. Nkosi
+06/10/2026;11:30;Thabo;Fade;R 90,00;36;K. Molefe
+06/10/2026;11:30;Lerato;Other;R 100,00;30;L. Mokoena
+06/10/2026;12:30;Jason;Kids Cut;R 70,00;25;B. Khumalo
+06/10/2026;13:30;Nathi;Fade;R 120,00;36;A. van Wyk
+06/10/2026;14:00;Thabo;Fade;R 120,00;36;A. van Wyk
+06/10/2026;15:00;Thabo;Chiskop;R 80,00;15;B. Khumalo
+06/10/2026;16:30;Thabo;Beard Trim;R 70,00;20;T. Nkosi
+06/10/2026;16:00;Thabo;Fade;R 120,00;36;N. Dube
+06/10/2026;17:30;Lerato;Beard Trim;R 70,00;20;T. Nkosi
+06/10/2026;17:00;Lerato;Fade;R 120,00;36;S. Ndlovu
+06/10/2026;18:00;Sizwe;Beard Trim;R 70,00;20;S. Ndlovu
+06/10/2026;18:30;Thabo;Fade;R 90,00;36;L. Mokoena
+06/10/2026;19:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+07/10/2026;08:00;Lerato;Other;R 100,00;30;A. van Wyk
+07/10/2026;09:30;Lerato;Fade;R 90,00;36;N. Dube
+07/10/2026;10:30;Thabo;Fade;R 120,00;36;L. Mokoena
+07/10/2026;11:30;Thabo;Fade;R 120,00;35;T. Nkosi
+07/10/2026;12:00;Thabo;Hair Design;R 150,00;50;P. Zulu
+07/10/2026;13:00;Nathi;Other;R 100,00;30;L. Mokoena
+07/10/2026;14:30;Thabo;Fade;R 120,00;36;T. Nkosi
+07/10/2026;15:30;Nathi;Beard Trim;R 70,00;20;N. Dube
+07/10/2026;15:30;Sizwe;Beard Trim;R 70,00;20;B. Khumalo
+07/10/2026;16:30;Thabo;Other;R 100,00;30;A. van Wyk
+07/10/2026;16:00;Jason;Kids Cut;R 70,00;25;A. van Wyk
+07/10/2026;17:00;Lerato;Chiskop;R 80,00;15;K. Molefe
+07/10/2026;17:30;Nathi;Fade;R 90,00;35;K. Molefe
+07/10/2026;18:30;Thabo;Chiskop;R 80,00;15;B. Khumalo
+07/10/2026;18:30;Sizwe;Chiskop;R 80,00;15;T. Nkosi
+07/10/2026;19:30;Sizwe;Chiskop;R 80,00;15;N. Dube
+08/10/2026;08:00;Jason;Kids Cut;R 70,00;25;P. Zulu
+08/10/2026;09:30;Thabo;Kids Cut;R 70,00;25;K. Molefe
+08/10/2026;10:30;Lerato;Fade;R 120,00;36;T. Nkosi
+08/10/2026;11:30;Jason;Hair Design;R 150,00;50;K. Molefe
+08/10/2026;11:30;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+08/10/2026;12:30;Thabo;Fade;R 90,00;35;N. Dube
+08/10/2026;13:30;Sizwe;Fade;R 90,00;35;T. Nkosi
+08/10/2026;14:00;Sizwe;Chiskop;R 80,00;15;K. Molefe
+08/10/2026;14:30;Jason;Hair Design;R 150,00;50;L. Mokoena
+08/10/2026;15:00;Thabo;Other;R 100,00;30;S. Ndlovu
+08/10/2026;15:30;Jason;Fade;R 120,00;36;T. Nkosi
+08/10/2026;16:30;Sizwe;Other;R 100,00;30;S. Ndlovu
+08/10/2026;16:30;Jason;Fade;R 120,00;36;P. Zulu
+08/10/2026;16:00;Thabo;Fade;R 90,00;35;L. Mokoena
+08/10/2026;17:00;Nathi;Fade;R 120,00;36;B. Khumalo
+08/10/2026;17:00;Sizwe;Hair Design;R 150,00;50;K. Molefe
+08/10/2026;17:00;Jason;Fade;R 90,00;36;B. Khumalo
+08/10/2026;18:00;Thabo;Fade;R 120,00;35;B. Khumalo
+08/10/2026;18:30;Sizwe;Kids Cut;R 70,00;25;P. Zulu
+08/10/2026;19:00;Thabo;Beard Trim;R 70,00;20;B. Khumalo
+09/10/2026;08:00;Jason;Other;R 100,00;30;N. Dube
+09/10/2026;09:30;Lerato;Hair Design;R 150,00;50;S. Ndlovu
+09/10/2026;10:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+09/10/2026;10:00;Sizwe;Beard Trim;R 70,00;20;B. Khumalo
+09/10/2026;11:00;Nathi;Chiskop;R 80,00;15;S. Ndlovu
+09/10/2026;11:00;Jason;Hair Design;R 150,00;50;K. Molefe
+09/10/2026;12:00;Sizwe;Other;R 100,00;30;L. Mokoena
+09/10/2026;12:00;Jason;Kids Cut;R 70,00;25;P. Zulu
+09/10/2026;13:00;Jason;Beard Trim;R 70,00;20;T. Nkosi
+09/10/2026;13:30;Thabo;Beard Trim;R 70,00;20;B. Khumalo
+09/10/2026;13:30;Lerato;Fade;R 120,00;36;K. Molefe
+09/10/2026;14:30;Jason;Beard Trim;R 70,00;20;K. Molefe
+09/10/2026;14:00;Jason;Beard Trim;R 70,00;20;A. van Wyk
+09/10/2026;14:00;Nathi;Fade;R 90,00;35;P. Zulu
+09/10/2026;15:00;Nathi;Kids Cut;R 70,00;25;P. Zulu
+09/10/2026;15:00;Jason;Beard Trim;R 70,00;20;B. Khumalo
+09/10/2026;15:30;Jason;Fade;R 90,00;36;P. Zulu
+09/10/2026;16:00;Lerato;Fade;R 90,00;35;K. Molefe
+09/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+09/10/2026;16:00;Lerato;Beard Trim;R 70,00;20;A. van Wyk
+09/10/2026;16:30;Jason;Fade;R 90,00;35;A. van Wyk
+09/10/2026;17:00;Lerato;Beard Trim;R 70,00;20;T. Nkosi
+09/10/2026;17:00;Thabo;Kids Cut;R 70,00;25;A. van Wyk
+09/10/2026;17:30;Nathi;Kids Cut;R 70,00;25;N. Dube
+09/10/2026;17:00;Jason;Chiskop;R 80,00;15;L. Mokoena
+09/10/2026;18:00;Sizwe;Fade;R 120,00;35;B. Khumalo
+09/10/2026;18:00;Sizwe;Chiskop;R 80,00;15;N. Dube
+09/10/2026;18:00;Thabo;Other;R 100,00;30;K. Molefe
+09/10/2026;18:30;Thabo;Kids Cut;R 70,00;25;T. Nkosi
+09/10/2026;19:00;Sizwe;Fade;R 120,00;35;S. Ndlovu
+09/10/2026;19:00;Thabo;Other;R 100,00;30;L. Mokoena
+10/10/2026;08:00;Thabo;Fade;R 90,00;35;T. Nkosi
+10/10/2026;08:30;Thabo;Fade;R 120,00;35;N. Dube
+10/10/2026;08:00;Sizwe;Fade;R 120,00;36;T. Nkosi
+10/10/2026;09:00;Lerato;Chiskop;R 80,00;15;B. Khumalo
+10/10/2026;09:00;Sizwe;Kids Cut;R 70,00;25;P. Zulu
+10/10/2026;09:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+10/10/2026;09:30;Thabo;Chiskop;R 80,00;15;L. Mokoena
+10/10/2026;10:30;Lerato;Fade;R 120,00;36;T. Nkosi
+10/10/2026;10:00;Thabo;Kids Cut;R 70,00;25;K. Molefe
+10/10/2026;10:30;Nathi;Beard Trim;R 70,00;20;B. Khumalo
+10/10/2026;10:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
+10/10/2026;10:00;Nathi;Fade;R 120,00;36;A. van Wyk
+10/10/2026;11:30;Sizwe;Other;R 100,00;30;T. Nkosi
+10/10/2026;11:30;Lerato;Chiskop;R 80,00;15;B. Khumalo
+10/10/2026;11:30;Lerato;Beard Trim;R 70,00;20;A. van Wyk
+10/10/2026;11:00;Nathi;Fade;R 120,00;36;B. Khumalo
+10/10/2026;12:00;Nathi;Kids Cut;R 70,00;25;B. Khumalo
+10/10/2026;12:00;Lerato;Kids Cut;R 70,00;25;A. van Wyk
+10/10/2026;12:30;Thabo;Kids Cut;R 70,00;25;K. Molefe
+10/10/2026;12:30;Thabo;Fade;R 90,00;36;A. van Wyk
+10/10/2026;12:00;Thabo;Beard Trim;R 70,00;20;S. Ndlovu
+10/10/2026;13:30;Lerato;Other;R 100,00;30;T. Nkosi
+10/10/2026;13:00;Lerato;Other;R 100,00;30;L. Mokoena
+10/10/2026;13:30;Lerato;Kids Cut;R 70,00;25;K. Molefe
+10/10/2026;13:30;Thabo;Chiskop;R 80,00;15;A. van Wyk
+10/10/2026;14:30;Lerato;Kids Cut;R 70,00;25;P. Zulu
+10/10/2026;14:00;Thabo;Kids Cut;R 70,00;25;K. Molefe
+10/10/2026;14:00;Nathi;Hair Design;R 150,00;50;B. Khumalo
+10/10/2026;14:30;Lerato;Other;R 100,00;30;P. Zulu
+10/10/2026;15:00;Jason;Fade;R 90,00;36;A. van Wyk
+10/10/2026;15:30;Jason;Chiskop;R 80,00;15;K. Molefe
+10/10/2026;15:30;Jason;Kids Cut;R 70,00;25;L. Mokoena
+10/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;N. Dube
+10/10/2026;16:30;Sizwe;Fade;R 90,00;35;T. Nkosi
+10/10/2026;16:30;Lerato;Kids Cut;R 70,00;25;T. Nkosi
+10/10/2026;17:30;Thabo;Kids Cut;R 70,00;25;A. van Wyk
+10/10/2026;17:00;Nathi;Fade;R 120,00;36;N. Dube
+10/10/2026;18:30;Sizwe;Chiskop;R 80,00;15;A. van Wyk
+10/10/2026;18:00;Nathi;Beard Trim;R 70,00;20;P. Zulu
+10/10/2026;19:30;Thabo;Fade;R 90,00;35;K. Molefe
+11/10/2026;08:30;Jason;Kids Cut;R 70,00;25;B. Khumalo
+11/10/2026;09:00;Thabo;Chiskop;R 80,00;15;N. Dube
+11/10/2026;09:00;Jason;Chiskop;R 80,00;15;B. Khumalo
+11/10/2026;10:30;Nathi;Chiskop;R 80,00;15;N. Dube
+11/10/2026;10:00;Sizwe;Hair Design;R 150,00;50;N. Dube
+11/10/2026;11:30;Jason;Kids Cut;R 70,00;25;A. van Wyk
+11/10/2026;11:30;Lerato;Chiskop;R 80,00;15;K. Molefe
+11/10/2026;12:30;Thabo;Fade;R 90,00;36;P. Zulu
+11/10/2026;12:30;Lerato;Fade;R 90,00;36;A. van Wyk
+11/10/2026;13:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+11/10/2026;13:00;Thabo;Fade;R 120,00;35;A. van Wyk
+11/10/2026;14:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
+11/10/2026;14:30;Thabo;Hair Design;R 150,00;50;T. Nkosi
+11/10/2026;15:00;Thabo;Beard Trim;R 70,00;20;T. Nkosi
+11/10/2026;17:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+12/10/2026;09:30;Jason;Chiskop;R 80,00;15;N. Dube
+12/10/2026;10:00;Nathi;Hair Design;R 150,00;50;B. Khumalo
+12/10/2026;11:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+12/10/2026;12:30;Jason;Kids Cut;R 70,00;25;B. Khumalo
+12/10/2026;13:00;Jason;Fade;R 120,00;35;K. Molefe
+12/10/2026;14:30;Nathi;Kids Cut;R 70,00;25;A. van Wyk
+12/10/2026;15:30;Nathi;Fade;R 120,00;35;T. Nkosi
+12/10/2026;16:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
+12/10/2026;16:00;Sizwe;Fade;R 90,00;36;B. Khumalo
+12/10/2026;17:30;Nathi;Hair Design;R 150,00;50;N. Dube
+12/10/2026;18:00;Jason;Chiskop;R 80,00;15;N. Dube
+12/10/2026;18:30;Thabo;Beard Trim;R 70,00;20;A. van Wyk
+12/10/2026;19:30;Thabo;Hair Design;R 150,00;50;S. Ndlovu
+13/10/2026;08:30;Lerato;Beard Trim;R 70,00;20;A. van Wyk
+13/10/2026;09:30;Sizwe;Fade;R 120,00;36;P. Zulu
+13/10/2026;10:30;Jason;Fade;R 90,00;36;N. Dube
+13/10/2026;11:30;Lerato;Fade;R 120,00;36;N. Dube
+13/10/2026;12:30;Jason;Fade;R 120,00;36;P. Zulu
+13/10/2026;13:00;Sizwe;Other;R 100,00;30;B. Khumalo
+13/10/2026;14:00;Thabo;Fade;R 120,00;35;L. Mokoena
+13/10/2026;15:30;Sizwe;Fade;R 90,00;36;K. Molefe
+13/10/2026;16:30;Lerato;Other;R 100,00;30;N. Dube
+13/10/2026;16:30;Lerato;Chiskop;R 80,00;15;T. Nkosi
+13/10/2026;17:00;Sizwe;Beard Trim;R 70,00;20;S. Ndlovu
+13/10/2026;17:30;Sizwe;Kids Cut;R 70,00;25;T. Nkosi
+13/10/2026;18:00;Thabo;Fade;R 120,00;36;N. Dube
+13/10/2026;19:30;Thabo;Kids Cut;R 70,00;25;K. Molefe
+14/10/2026;08:00;Thabo;Fade;R 120,00;35;K. Molefe
+14/10/2026;11:00;Jason;Chiskop;R 80,00;15;L. Mokoena
+14/10/2026;12:00;Sizwe;Fade;R 90,00;36;L. Mokoena
+14/10/2026;12:00;Lerato;Chiskop;R 80,00;15;B. Khumalo
+14/10/2026;13:00;Jason;Beard Trim;R 70,00;20;A. van Wyk
+14/10/2026;14:30;Jason;Fade;R 120,00;36;B. Khumalo
+14/10/2026;15:00;Lerato;Chiskop;R 80,00;15;L. Mokoena
+14/10/2026;16:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+14/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;T. Nkosi
+14/10/2026;17:30;Sizwe;Hair Design;R 150,00;50;L. Mokoena
+14/10/2026;17:30;Thabo;Other;R 100,00;30;N. Dube
+14/10/2026;18:00;Thabo;Chiskop;R 80,00;15;A. van Wyk
+14/10/2026;18:00;Lerato;Chiskop;R 80,00;15;N. Dube
+14/10/2026;19:00;Thabo;Fade;R 120,00;35;P. Zulu
+15/10/2026;08:30;Thabo;Kids Cut;R 70,00;25;K. Molefe
+15/10/2026;09:30;Sizwe;Chiskop;R 80,00;15;A. van Wyk
+15/10/2026;10:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+15/10/2026;11:30;Sizwe;Chiskop;R 80,00;15;N. Dube
+15/10/2026;12:30;Thabo;Kids Cut;R 70,00;25;N. Dube
+15/10/2026;13:30;Jason;Fade;R 120,00;35;T. Nkosi
+15/10/2026;14:30;Lerato;Kids Cut;R 70,00;25;K. Molefe
+15/10/2026;15:00;Thabo;Kids Cut;R 70,00;25;K. Molefe
+15/10/2026;15:00;Thabo;Hair Design;R 150,00;50;T. Nkosi
+15/10/2026;16:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+15/10/2026;16:00;Nathi;Fade;R 120,00;36;P. Zulu
+15/10/2026;17:00;Lerato;Fade;R 120,00;35;T. Nkosi
+15/10/2026;17:00;Nathi;Hair Design;R 150,00;50;T. Nkosi
+15/10/2026;17:00;Jason;Kids Cut;R 70,00;25;A. van Wyk
+15/10/2026;18:00;Sizwe;Chiskop;R 80,00;15;L. Mokoena
+15/10/2026;18:00;Sizwe;Fade;R 90,00;35;A. van Wyk
+15/10/2026;19:30;Thabo;Other;R 100,00;30;T. Nkosi
+15/10/2026;19:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+16/10/2026;08:00;Sizwe;Other;R 100,00;30;L. Mokoena
+16/10/2026;09:00;Sizwe;Beard Trim;R 70,00;20;T. Nkosi
+16/10/2026;09:00;Sizwe;Hair Design;R 150,00;50;T. Nkosi
+16/10/2026;10:00;Thabo;Fade;R 90,00;36;N. Dube
+16/10/2026;11:30;Jason;Fade;R 120,00;35;K. Molefe
+16/10/2026;11:00;Jason;Beard Trim;R 70,00;20;L. Mokoena
+16/10/2026;12:30;Nathi;Beard Trim;R 70,00;20;A. van Wyk
+16/10/2026;12:30;Nathi;Fade;R 120,00;36;T. Nkosi
+16/10/2026;13:30;Jason;Beard Trim;R 70,00;20;T. Nkosi
+16/10/2026;13:30;Lerato;Chiskop;R 80,00;15;N. Dube
+16/10/2026;14:00;Lerato;Beard Trim;R 70,00;20;S. Ndlovu
+16/10/2026;14:00;Sizwe;Fade;R 90,00;36;K. Molefe
+16/10/2026;14:30;Thabo;Kids Cut;R 70,00;25;B. Khumalo
+16/10/2026;15:30;Jason;Other;R 100,00;30;T. Nkosi
+16/10/2026;15:00;Sizwe;Chiskop;R 80,00;15;T. Nkosi
+16/10/2026;15:30;Nathi;Chiskop;R 80,00;15;K. Molefe
+16/10/2026;16:30;Jason;Fade;R 90,00;35;T. Nkosi
+16/10/2026;16:00;Jason;Kids Cut;R 70,00;25;L. Mokoena
+16/10/2026;16:00;Jason;Chiskop;R 80,00;15;A. van Wyk
+16/10/2026;16:30;Lerato;Fade;R 120,00;36;L. Mokoena
+16/10/2026;17:30;Thabo;Other;R 100,00;30;B. Khumalo
+16/10/2026;17:30;Lerato;Fade;R 120,00;36;K. Molefe
+16/10/2026;17:30;Jason;Chiskop;R 80,00;15;A. van Wyk
+16/10/2026;17:30;Thabo;Chiskop;R 80,00;15;N. Dube
+16/10/2026;18:30;Jason;Chiskop;R 80,00;15;K. Molefe
+16/10/2026;18:30;Thabo;Chiskop;R 80,00;15;T. Nkosi
+16/10/2026;18:00;Thabo;Fade;R 90,00;36;P. Zulu
+16/10/2026;19:00;Jason;Fade;R 90,00;35;P. Zulu
+16/10/2026;19:00;Nathi;Chiskop;R 80,00;15;P. Zulu
+17/10/2026;08:30;Sizwe;Kids Cut;R 70,00;25;L. Mokoena
+17/10/2026;08:00;Thabo;Chiskop;R 80,00;15;N. Dube
+17/10/2026;08:30;Nathi;Fade;R 90,00;35;A. van Wyk
+17/10/2026;09:30;Thabo;Chiskop;R 80,00;15;L. Mokoena
+17/10/2026;09:00;Lerato;Beard Trim;R 70,00;20;L. Mokoena
+17/10/2026;09:00;Lerato;Chiskop;R 80,00;15;N. Dube
+17/10/2026;09:00;Jason;Chiskop;R 80,00;15;N. Dube
+17/10/2026;10:30;Nathi;Fade;R 90,00;35;P. Zulu
+17/10/2026;10:30;Thabo;Hair Design;R 150,00;50;B. Khumalo
+17/10/2026;10:00;Jason;Hair Design;R 150,00;50;P. Zulu
+17/10/2026;10:30;Nathi;Fade;R 90,00;36;P. Zulu
+17/10/2026;10:30;Thabo;Chiskop;R 80,00;15;N. Dube
+17/10/2026;11:30;Thabo;Chiskop;R 80,00;15;B. Khumalo
+17/10/2026;11:30;Sizwe;Kids Cut;R 70,00;25;P. Zulu
+17/10/2026;11:30;Lerato;Other;R 100,00;30;P. Zulu
+17/10/2026;11:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+17/10/2026;11:30;Thabo;Fade;R 90,00;36;L. Mokoena
+17/10/2026;12:00;Nathi;Chiskop;R 80,00;15;S. Ndlovu
+17/10/2026;12:30;Thabo;Other;R 100,00;30;T. Nkosi
+17/10/2026;12:00;Lerato;Kids Cut;R 70,00;25;B. Khumalo
+17/10/2026;12:30;Jason;Fade;R 120,00;36;A. van Wyk
+17/10/2026;13:00;Nathi;Chiskop;R 80,00;15;A. van Wyk
+17/10/2026;13:00;Sizwe;Fade;R 90,00;35;K. Molefe
+17/10/2026;13:00;Lerato;Hair Design;R 150,00;50;P. Zulu
+17/10/2026;13:30;Sizwe;Fade;R 90,00;35;K. Molefe
+17/10/2026;14:30;Nathi;Fade;R 90,00;36;B. Khumalo
+17/10/2026;14:30;Nathi;Other;R 100,00;30;P. Zulu
+17/10/2026;14:30;Thabo;Chiskop;R 80,00;15;N. Dube
+17/10/2026;15:00;Jason;Chiskop;R 80,00;15;L. Mokoena
+17/10/2026;15:00;Sizwe;Beard Trim;R 70,00;20;K. Molefe
+17/10/2026;15:00;Nathi;Chiskop;R 80,00;15;T. Nkosi
+17/10/2026;16:30;Nathi;Hair Design;R 150,00;50;P. Zulu
+17/10/2026;16:30;Sizwe;Other;R 100,00;30;T. Nkosi
+17/10/2026;17:00;Thabo;Fade;R 120,00;35;A. van Wyk
+17/10/2026;17:30;Lerato;Chiskop;R 80,00;15;P. Zulu
+17/10/2026;18:30;Thabo;Fade;R 90,00;35;P. Zulu
+17/10/2026;18:00;Sizwe;Chiskop;R 80,00;15;K. Molefe
+17/10/2026;19:30;Lerato;Other;R 100,00;30;N. Dube
+18/10/2026;08:00;Sizwe;Chiskop;R 80,00;15;T. Nkosi
+18/10/2026;09:30;Nathi;Fade;R 120,00;35;P. Zulu
+18/10/2026;10:00;Nathi;Chiskop;R 80,00;15;A. van Wyk
+18/10/2026;10:30;Lerato;Chiskop;R 80,00;15;T. Nkosi
+18/10/2026;11:30;Thabo;Beard Trim;R 70,00;20;A. van Wyk
+18/10/2026;11:30;Nathi;Fade;R 120,00;36;K. Molefe
+18/10/2026;12:00;Thabo;Beard Trim;R 70,00;20;K. Molefe
+18/10/2026;12:30;Sizwe;Fade;R 120,00;36;L. Mokoena
+18/10/2026;13:00;Thabo;Chiskop;R 80,00;15;K. Molefe
+18/10/2026;13:00;Thabo;Fade;R 90,00;35;P. Zulu
+18/10/2026;14:00;Jason;Hair Design;R 150,00;50;P. Zulu
+18/10/2026;15:30;Jason;Fade;R 90,00;36;B. Khumalo
+18/10/2026;16:30;Lerato;Fade;R 90,00;36;B. Khumalo
+18/10/2026;17:30;Jason;Fade;R 90,00;36;A. van Wyk
+18/10/2026;19:30;Nathi;Kids Cut;R 70,00;25;A. van Wyk
+19/10/2026;08:30;Sizwe;Fade;R 90,00;35;T. Nkosi
+19/10/2026;10:30;Thabo;Beard Trim;R 70,00;20;K. Molefe
+19/10/2026;11:00;Thabo;Other;R 100,00;30;L. Mokoena
+19/10/2026;12:00;Jason;Beard Trim;R 70,00;20;S. Ndlovu
+19/10/2026;13:30;Thabo;Beard Trim;R 70,00;20;K. Molefe
+19/10/2026;14:30;Lerato;Beard Trim;R 70,00;20;B. Khumalo
+19/10/2026;15:30;Thabo;Beard Trim;R 70,00;20;N. Dube
+19/10/2026;16:30;Lerato;Beard Trim;R 70,00;20;L. Mokoena
+19/10/2026;17:30;Thabo;Chiskop;R 80,00;15;T. Nkosi
+19/10/2026;18:00;Nathi;Chiskop;R 80,00;15;B. Khumalo
+19/10/2026;19:30;Lerato;Kids Cut;R 70,00;25;A. van Wyk
+20/10/2026;08:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
+20/10/2026;09:30;Sizwe;Fade;R 120,00;36;A. van Wyk
+20/10/2026;10:00;Sizwe;Beard Trim;R 70,00;20;N. Dube
+20/10/2026;11:00;Thabo;Chiskop;R 80,00;15;B. Khumalo
+20/10/2026;12:00;Nathi;Kids Cut;R 70,00;25;N. Dube
+20/10/2026;13:30;Jason;Kids Cut;R 70,00;25;S. Ndlovu
+20/10/2026;14:30;Nathi;Hair Design;R 150,00;50;B. Khumalo
+20/10/2026;15:00;Thabo;Beard Trim;R 70,00;20;N. Dube
+20/10/2026;15:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+20/10/2026;16:00;Jason;Fade;R 90,00;35;P. Zulu
+20/10/2026;16:00;Thabo;Kids Cut;R 70,00;25;S. Ndlovu
+20/10/2026;17:30;Jason;Beard Trim;R 70,00;20;S. Ndlovu
+20/10/2026;17:00;Thabo;Chiskop;R 80,00;15;N. Dube
+20/10/2026;18:00;Jason;Fade;R 90,00;35;N. Dube
+20/10/2026;18:30;Sizwe;Beard Trim;R 70,00;20;N. Dube
+20/10/2026;19:30;Lerato;Fade;R 120,00;35;L. Mokoena
+21/10/2026;09:30;Sizwe;Chiskop;R 80,00;15;A. van Wyk
+21/10/2026;11:30;Lerato;Beard Trim;R 70,00;20;L. Mokoena
+21/10/2026;11:30;Jason;Other;R 100,00;30;T. Nkosi
+21/10/2026;12:30;Thabo;Kids Cut;R 70,00;25;N. Dube
+21/10/2026;13:30;Lerato;Chiskop;R 80,00;15;B. Khumalo
+21/10/2026;14:30;Lerato;Hair Design;R 150,00;50;S. Ndlovu
+21/10/2026;14:30;Sizwe;Kids Cut;R 70,00;25;P. Zulu
+21/10/2026;15:00;Lerato;Fade;R 120,00;36;B. Khumalo
+21/10/2026;16:00;Lerato;Beard Trim;R 70,00;20;A. van Wyk
+21/10/2026;16:00;Lerato;Other;R 100,00;30;L. Mokoena
+21/10/2026;17:30;Thabo;Beard Trim;R 70,00;20;T. Nkosi
+21/10/2026;17:30;Lerato;Other;R 100,00;30;B. Khumalo
+21/10/2026;18:30;Thabo;Kids Cut;R 70,00;25;N. Dube
+21/10/2026;18:00;Lerato;Kids Cut;R 70,00;25;P. Zulu
+21/10/2026;19:00;Thabo;Chiskop;R 80,00;15;K. Molefe
+22/10/2026;08:00;Sizwe;Kids Cut;R 70,00;25;L. Mokoena
+22/10/2026;09:30;Thabo;Fade;R 120,00;36;L. Mokoena
+22/10/2026;10:30;Jason;Other;R 100,00;30;B. Khumalo
+22/10/2026;11:30;Nathi;Fade;R 120,00;35;L. Mokoena
+22/10/2026;12:30;Lerato;Fade;R 120,00;36;B. Khumalo
+22/10/2026;13:30;Jason;Other;R 100,00;30;S. Ndlovu
+22/10/2026;14:00;Lerato;Beard Trim;R 70,00;20;S. Ndlovu
+22/10/2026;15:00;Nathi;Kids Cut;R 70,00;25;N. Dube
+22/10/2026;15:00;Nathi;Chiskop;R 80,00;15;T. Nkosi
+22/10/2026;16:00;Lerato;Chiskop;R 80,00;15;S. Ndlovu
+22/10/2026;16:00;Sizwe;Kids Cut;R 70,00;25;A. van Wyk
+22/10/2026;16:00;Lerato;Fade;R 120,00;35;L. Mokoena
+22/10/2026;17:00;Lerato;Chiskop;R 80,00;15;T. Nkosi
+22/10/2026;17:00;Lerato;Other;R 100,00;30;P. Zulu
+22/10/2026;18:00;Thabo;Kids Cut;R 70,00;25;S. Ndlovu
+22/10/2026;18:30;Sizwe;Other;R 100,00;30;N. Dube
+22/10/2026;19:00;Thabo;Chiskop;R 80,00;15;N. Dube
+23/10/2026;08:00;Jason;Hair Design;R 150,00;50;A. van Wyk
+23/10/2026;09:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+23/10/2026;09:30;Nathi;Other;R 100,00;30;S. Ndlovu
+23/10/2026;10:30;Jason;Other;R 100,00;30;N. Dube
+23/10/2026;11:30;Jason;Other;R 100,00;30;K. Molefe
+23/10/2026;11:30;Jason;Other;R 100,00;30;L. Mokoena
+23/10/2026;12:00;Thabo;Chiskop;R 80,00;15;B. Khumalo
+23/10/2026;12:30;Nathi;Chiskop;R 80,00;15;N. Dube
+23/10/2026;13:30;Nathi;Chiskop;R 80,00;15;N. Dube
+23/10/2026;13:00;Lerato;Chiskop;R 80,00;15;K. Molefe
+23/10/2026;14:30;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+23/10/2026;14:30;Nathi;Fade;R 120,00;36;S. Ndlovu
+23/10/2026;14:00;Jason;Fade;R 120,00;35;A. van Wyk
+23/10/2026;15:00;Nathi;Chiskop;R 80,00;15;A. van Wyk
+23/10/2026;15:00;Thabo;Beard Trim;R 70,00;20;B. Khumalo
+23/10/2026;15:30;Lerato;Fade;R 90,00;36;T. Nkosi
+23/10/2026;16:30;Lerato;Chiskop;R 80,00;15;A. van Wyk
+23/10/2026;16:30;Sizwe;Kids Cut;R 70,00;25;N. Dube
+23/10/2026;16:30;Nathi;Chiskop;R 80,00;15;S. Ndlovu
+23/10/2026;16:00;Lerato;Chiskop;R 80,00;15;S. Ndlovu
+23/10/2026;17:00;Nathi;Other;R 100,00;30;L. Mokoena
+23/10/2026;17:00;Jason;Fade;R 120,00;35;T. Nkosi
+23/10/2026;17:00;Thabo;Fade;R 120,00;35;L. Mokoena
+23/10/2026;17:00;Lerato;Other;R 100,00;30;P. Zulu
+23/10/2026;18:00;Nathi;Chiskop;R 80,00;15;A. van Wyk
+23/10/2026;18:30;Thabo;Chiskop;R 80,00;15;K. Molefe
+23/10/2026;18:30;Lerato;Chiskop;R 80,00;15;N. Dube
+23/10/2026;19:30;Jason;Other;R 100,00;30;L. Mokoena
+23/10/2026;19:30;Lerato;Hair Design;R 150,00;50;T. Nkosi
+24/10/2026;08:00;Thabo;Chiskop;R 80,00;15;B. Khumalo
+24/10/2026;08:00;Thabo;Chiskop;R 80,00;15;P. Zulu
+24/10/2026;08:30;Jason;Kids Cut;R 70,00;25;K. Molefe
+24/10/2026;08:30;Lerato;Chiskop;R 80,00;15;K. Molefe
+24/10/2026;09:30;Jason;Other;R 100,00;30;K. Molefe
+24/10/2026;09:30;Nathi;Kids Cut;R 70,00;25;S. Ndlovu
+24/10/2026;09:00;Sizwe;Kids Cut;R 70,00;25;L. Mokoena
+24/10/2026;09:00;Jason;Other;R 100,00;30;P. Zulu
+24/10/2026;09:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+24/10/2026;10:00;Lerato;Chiskop;R 80,00;15;K. Molefe
+24/10/2026;10:30;Sizwe;Kids Cut;R 70,00;25;L. Mokoena
+24/10/2026;10:00;Sizwe;Kids Cut;R 70,00;25;P. Zulu
+24/10/2026;10:30;Jason;Fade;R 120,00;35;T. Nkosi
+24/10/2026;10:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+24/10/2026;11:30;Thabo;Chiskop;R 80,00;15;K. Molefe
+24/10/2026;11:00;Lerato;Kids Cut;R 70,00;25;L. Mokoena
+24/10/2026;11:30;Nathi;Chiskop;R 80,00;15;L. Mokoena
+24/10/2026;11:00;Jason;Chiskop;R 80,00;15;B. Khumalo
+24/10/2026;11:00;Sizwe;Chiskop;R 80,00;15;A. van Wyk
+24/10/2026;12:30;Lerato;Other;R 100,00;30;B. Khumalo
+24/10/2026;12:30;Thabo;Other;R 100,00;30;N. Dube
+24/10/2026;12:00;Lerato;Hair Design;R 150,00;50;S. Ndlovu
+24/10/2026;12:30;Thabo;Chiskop;R 80,00;15;A. van Wyk
+24/10/2026;12:30;Thabo;Hair Design;R 150,00;50;B. Khumalo
+24/10/2026;13:00;Nathi;Chiskop;R 80,00;15;P. Zulu
+24/10/2026;13:30;Lerato;Chiskop;R 80,00;15;K. Molefe
+24/10/2026;13:30;Jason;Other;R 100,00;30;K. Molefe
+24/10/2026;13:30;Sizwe;Chiskop;R 80,00;15;N. Dube
+24/10/2026;14:30;Lerato;Fade;R 120,00;35;A. van Wyk
+24/10/2026;14:30;Jason;Chiskop;R 80,00;15;L. Mokoena
+24/10/2026;14:00;Lerato;Other;R 100,00;30;K. Molefe
+24/10/2026;15:30;Lerato;Kids Cut;R 70,00;25;N. Dube
+24/10/2026;15:00;Jason;Chiskop;R 80,00;15;K. Molefe
+24/10/2026;15:30;Lerato;Hair Design;R 150,00;50;L. Mokoena
+24/10/2026;16:30;Sizwe;Fade;R 120,00;36;S. Ndlovu
+24/10/2026;16:30;Jason;Fade;R 120,00;35;A. van Wyk
+24/10/2026;17:30;Sizwe;Chiskop;R 80,00;15;T. Nkosi
+24/10/2026;17:00;Jason;Fade;R 120,00;36;B. Khumalo
+24/10/2026;18:00;Sizwe;Fade;R 120,00;35;T. Nkosi
+24/10/2026;18:30;Jason;Chiskop;R 80,00;15;N. Dube
+24/10/2026;19:30;Jason;Kids Cut;R 70,00;25;N. Dube
+25/10/2026;08:30;Lerato;Chiskop;R 80,00;15;T. Nkosi
+25/10/2026;09:30;Lerato;Other;R 100,00;30;K. Molefe
+25/10/2026;09:00;Thabo;Fade;R 90,00;36;L. Mokoena
+25/10/2026;09:00;Lerato;Kids Cut;R 70,00;25;A. van Wyk
+25/10/2026;10:30;Sizwe;Chiskop;R 80,00;15;K. Molefe
+25/10/2026;10:30;Jason;Kids Cut;R 70,00;25;T. Nkosi
+25/10/2026;10:00;Sizwe;Hair Design;R 150,00;50;K. Molefe
+25/10/2026;11:30;Thabo;Chiskop;R 80,00;15;L. Mokoena
+25/10/2026;11:30;Lerato;Chiskop;R 80,00;15;P. Zulu
+25/10/2026;11:00;Sizwe;Fade;R 120,00;35;B. Khumalo
+25/10/2026;12:00;Thabo;Fade;R 120,00;35;S. Ndlovu
+25/10/2026;12:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+25/10/2026;12:00;Thabo;Other;R 100,00;30;K. Molefe
+25/10/2026;13:30;Thabo;Fade;R 120,00;35;P. Zulu
+25/10/2026;13:30;Jason;Other;R 100,00;30;K. Molefe
+25/10/2026;14:00;Thabo;Fade;R 90,00;35;B. Khumalo
+25/10/2026;15:30;Lerato;Fade;R 120,00;36;S. Ndlovu
+25/10/2026;16:30;Thabo;Chiskop;R 80,00;15;T. Nkosi
+25/10/2026;17:00;Jason;Beard Trim;R 70,00;20;A. van Wyk
+25/10/2026;18:00;Thabo;Chiskop;R 80,00;15;N. Dube
+26/10/2026;08:30;Sizwe;Fade;R 90,00;35;S. Ndlovu
+26/10/2026;09:30;Jason;Fade;R 120,00;35;K. Molefe
+26/10/2026;10:30;Jason;Kids Cut;R 70,00;25;L. Mokoena
+26/10/2026;11:00;Jason;Chiskop;R 80,00;15;K. Molefe
+26/10/2026;11:30;Jason;Hair Design;R 150,00;50;K. Molefe
+26/10/2026;12:00;Thabo;Other;R 100,00;30;B. Khumalo
+26/10/2026;12:30;Thabo;Fade;R 120,00;35;T. Nkosi
+26/10/2026;13:30;Lerato;Chiskop;R 80,00;15;P. Zulu
+26/10/2026;14:00;Jason;Fade;R 120,00;36;P. Zulu
+26/10/2026;15:30;Thabo;Fade;R 90,00;35;L. Mokoena
+26/10/2026;16:30;Lerato;Chiskop;R 80,00;15;N. Dube
+26/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;B. Khumalo
+26/10/2026;17:00;Lerato;Fade;R 120,00;36;N. Dube
+26/10/2026;17:00;Sizwe;Other;R 100,00;30;B. Khumalo
+26/10/2026;18:00;Lerato;Other;R 100,00;30;T. Nkosi
+26/10/2026;18:30;Sizwe;Fade;R 120,00;36;N. Dube
+26/10/2026;19:00;Sizwe;Fade;R 90,00;35;K. Molefe
+27/10/2026;08:30;Jason;Chiskop;R 80,00;15;B. Khumalo
+27/10/2026;09:00;Lerato;Chiskop;R 80,00;15;K. Molefe
+27/10/2026;10:30;Nathi;Fade;R 120,00;36;T. Nkosi
+27/10/2026;11:30;Jason;Fade;R 120,00;35;K. Molefe
+27/10/2026;12:00;Thabo;Chiskop;R 80,00;15;T. Nkosi
+27/10/2026;12:00;Thabo;Chiskop;R 80,00;15;S. Ndlovu
+27/10/2026;13:30;Jason;Beard Trim;R 70,00;20;K. Molefe
+27/10/2026;13:00;Sizwe;Chiskop;R 80,00;15;P. Zulu
+27/10/2026;14:00;Jason;Chiskop;R 80,00;15;B. Khumalo
+27/10/2026;14:00;Lerato;Chiskop;R 80,00;15;B. Khumalo
+27/10/2026;15:30;Nathi;Chiskop;R 80,00;15;L. Mokoena
+27/10/2026;15:30;Lerato;Chiskop;R 80,00;15;A. van Wyk
+27/10/2026;16:00;Nathi;Beard Trim;R 70,00;20;B. Khumalo
+27/10/2026;16:00;Nathi;Hair Design;R 150,00;50;L. Mokoena
+27/10/2026;17:30;Lerato;Beard Trim;R 70,00;20;A. van Wyk
+27/10/2026;17:30;Sizwe;Other;R 100,00;30;L. Mokoena
+27/10/2026;17:30;Thabo;Kids Cut;R 70,00;25;T. Nkosi
+27/10/2026;18:30;Sizwe;Fade;R 120,00;35;A. van Wyk
+27/10/2026;18:00;Nathi;Chiskop;R 80,00;15;T. Nkosi
+27/10/2026;18:30;Thabo;Fade;R 90,00;35;P. Zulu
+27/10/2026;19:30;Thabo;Fade;R 120,00;36;K. Molefe
+27/10/2026;19:00;Thabo;Beard Trim;R 70,00;20;P. Zulu
+28/10/2026;08:30;Sizwe;Chiskop;R 80,00;15;P. Zulu
+28/10/2026;09:30;Nathi;Other;R 100,00;30;T. Nkosi
+28/10/2026;10:30;Thabo;Chiskop;R 80,00;15;N. Dube
+28/10/2026;10:30;Sizwe;Chiskop;R 80,00;15;P. Zulu
+28/10/2026;11:00;Sizwe;Fade;R 120,00;35;K. Molefe
+28/10/2026;11:00;Lerato;Chiskop;R 80,00;15;P. Zulu
+28/10/2026;12:00;Lerato;Fade;R 120,00;35;N. Dube
+28/10/2026;12:00;Thabo;Chiskop;R 80,00;15;P. Zulu
+28/10/2026;13:30;Jason;Fade;R 90,00;35;T. Nkosi
+28/10/2026;13:00;Jason;Kids Cut;R 70,00;25;T. Nkosi
+28/10/2026;14:30;Lerato;Kids Cut;R 70,00;25;S. Ndlovu
+28/10/2026;14:00;Jason;Hair Design;R 150,00;50;L. Mokoena
+28/10/2026;15:30;Jason;Fade;R 90,00;36;L. Mokoena
+28/10/2026;15:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+28/10/2026;16:30;Sizwe;Chiskop;R 80,00;15;N. Dube
+28/10/2026;16:30;Jason;Fade;R 120,00;36;A. van Wyk
+28/10/2026;17:00;Lerato;Fade;R 90,00;36;A. van Wyk
+28/10/2026;17:30;Lerato;Fade;R 120,00;36;B. Khumalo
+28/10/2026;18:00;Lerato;Fade;R 120,00;35;L. Mokoena
+28/10/2026;18:00;Thabo;Kids Cut;R 70,00;25;N. Dube
+28/10/2026;19:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+28/10/2026;19:30;Sizwe;Other;R 100,00;30;T. Nkosi
+29/10/2026;08:30;Lerato;Chiskop;R 80,00;15;A. van Wyk
+29/10/2026;08:30;Thabo;Fade;R 120,00;36;A. van Wyk
+29/10/2026;09:30;Nathi;Chiskop;R 80,00;15;K. Molefe
+29/10/2026;10:00;Jason;Chiskop;R 80,00;15;S. Ndlovu
+29/10/2026;11:00;Nathi;Beard Trim;R 70,00;20;L. Mokoena
+29/10/2026;11:30;Lerato;Kids Cut;R 70,00;25;B. Khumalo
+29/10/2026;12:00;Thabo;Hair Design;R 150,00;50;B. Khumalo
+29/10/2026;12:30;Lerato;Fade;R 120,00;35;N. Dube
+29/10/2026;13:30;Sizwe;Kids Cut;R 70,00;25;A. van Wyk
+29/10/2026;13:00;Thabo;Other;R 100,00;30;P. Zulu
+29/10/2026;14:00;Sizwe;Kids Cut;R 70,00;25;P. Zulu
+29/10/2026;14:00;Sizwe;Chiskop;R 80,00;15;P. Zulu
+29/10/2026;15:00;Sizwe;Chiskop;R 80,00;15;K. Molefe
+29/10/2026;15:00;Thabo;Beard Trim;R 70,00;20;S. Ndlovu
+29/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;B. Khumalo
+29/10/2026;16:30;Lerato;Chiskop;R 80,00;15;S. Ndlovu
+29/10/2026;16:00;Lerato;Other;R 100,00;30;A. van Wyk
+29/10/2026;17:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+29/10/2026;17:30;Sizwe;Chiskop;R 80,00;15;T. Nkosi
+29/10/2026;17:00;Lerato;Fade;R 90,00;35;A. van Wyk
+29/10/2026;17:00;Jason;Other;R 100,00;30;A. van Wyk
+29/10/2026;18:30;Jason;Kids Cut;R 70,00;25;S. Ndlovu
+29/10/2026;18:00;Thabo;Other;R 100,00;30;S. Ndlovu
+29/10/2026;19:30;Thabo;Chiskop;R 80,00;15;B. Khumalo
+30/10/2026;08:00;Lerato;Chiskop;R 80,00;15;A. van Wyk
+30/10/2026;09:30;Thabo;Chiskop;R 80,00;15;K. Molefe
+30/10/2026;10:00;Jason;Fade;R 120,00;35;T. Nkosi
+30/10/2026;10:00;Nathi;Chiskop;R 80,00;15;B. Khumalo
+30/10/2026;11:00;Jason;Fade;R 120,00;35;S. Ndlovu
+30/10/2026;11:30;Thabo;Chiskop;R 80,00;15;L. Mokoena
+30/10/2026;11:30;Thabo;Hair Design;R 150,00;50;B. Khumalo
+30/10/2026;12:00;Sizwe;Fade;R 120,00;35;B. Khumalo
+30/10/2026;12:30;Nathi;Fade;R 90,00;35;A. van Wyk
+30/10/2026;13:30;Lerato;Fade;R 120,00;35;S. Ndlovu
+30/10/2026;13:00;Jason;Kids Cut;R 70,00;25;N. Dube
+30/10/2026;13:30;Thabo;Kids Cut;R 70,00;25;P. Zulu
+30/10/2026;14:30;Nathi;Chiskop;R 80,00;15;N. Dube
+30/10/2026;14:30;Nathi;Hair Design;R 150,00;50;T. Nkosi
+30/10/2026;14:00;Thabo;Fade;R 120,00;36;A. van Wyk
+30/10/2026;15:30;Nathi;Kids Cut;R 70,00;25;A. van Wyk
+30/10/2026;15:30;Thabo;Fade;R 90,00;35;K. Molefe
+30/10/2026;15:00;Jason;Fade;R 90,00;36;L. Mokoena
+30/10/2026;15:30;Jason;Hair Design;R 150,00;50;P. Zulu
+30/10/2026;15:30;Nathi;Beard Trim;R 70,00;20;K. Molefe
+30/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;N. Dube
+30/10/2026;16:30;Lerato;Other;R 100,00;30;P. Zulu
+30/10/2026;16:30;Sizwe;Chiskop;R 80,00;15;S. Ndlovu
+30/10/2026;16:30;Nathi;Beard Trim;R 70,00;20;P. Zulu
+30/10/2026;16:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+30/10/2026;17:30;Jason;Chiskop;R 80,00;15;P. Zulu
+30/10/2026;17:00;Nathi;Beard Trim;R 70,00;20;P. Zulu
+30/10/2026;17:00;Jason;Kids Cut;R 70,00;25;B. Khumalo
+30/10/2026;17:30;Nathi;Fade;R 90,00;36;B. Khumalo
+30/10/2026;17:30;Lerato;Kids Cut;R 70,00;25;K. Molefe
+30/10/2026;18:30;Jason;Fade;R 90,00;36;K. Molefe
+30/10/2026;18:30;Lerato;Beard Trim;R 70,00;20;P. Zulu
+30/10/2026;18:30;Nathi;Chiskop;R 80,00;15;B. Khumalo
+30/10/2026;18:00;Thabo;Chiskop;R 80,00;15;P. Zulu
+30/10/2026;18:30;Jason;Beard Trim;R 70,00;20;N. Dube
+30/10/2026;19:00;Sizwe;Beard Trim;R 70,00;20;S. Ndlovu
+30/10/2026;19:00;Sizwe;Kids Cut;R 70,00;25;S. Ndlovu
+30/10/2026;19:30;Thabo;Beard Trim;R 70,00;20;K. Molefe
+31/10/2026;08:00;Jason;Chiskop;R 80,00;15;S. Ndlovu
+31/10/2026;08:00;Jason;Kids Cut;R 70,00;25;N. Dube
+31/10/2026;08:30;Jason;Other;R 100,00;30;P. Zulu
+31/10/2026;08:00;Thabo;Kids Cut;R 70,00;25;B. Khumalo
+31/10/2026;09:00;Lerato;Other;R 100,00;30;N. Dube
+31/10/2026;09:30;Lerato;Chiskop;R 80,00;15;A. van Wyk
+31/10/2026;09:00;Thabo;Kids Cut;R 70,00;25;K. Molefe
+31/10/2026;09:00;Jason;Chiskop;R 80,00;15;B. Khumalo
+31/10/2026;09:30;Sizwe;Other;R 100,00;30;A. van Wyk
+31/10/2026;10:30;Jason;Chiskop;R 80,00;15;P. Zulu
+31/10/2026;10:00;Thabo;Fade;R 90,00;36;S. Ndlovu
+31/10/2026;10:00;Lerato;Chiskop;R 80,00;15;S. Ndlovu
+31/10/2026;10:00;Thabo;Fade;R 90,00;35;L. Mokoena
+31/10/2026;10:30;Lerato;Beard Trim;R 70,00;20;A. van Wyk
+31/10/2026;10:30;Thabo;Kids Cut;R 70,00;25;P. Zulu
+31/10/2026;11:30;Thabo;Hair Design;R 150,00;50;L. Mokoena
+31/10/2026;11:00;Lerato;Hair Design;R 150,00;50;B. Khumalo
+31/10/2026;11:30;Sizwe;Fade;R 120,00;36;K. Molefe
+31/10/2026;11:30;Sizwe;Fade;R 120,00;36;L. Mokoena
+31/10/2026;11:30;Thabo;Beard Trim;R 70,00;20;K. Molefe
+31/10/2026;11:00;Jason;Fade;R 120,00;35;A. van Wyk
+31/10/2026;11:00;Thabo;Beard Trim;R 70,00;20;B. Khumalo
+31/10/2026;12:00;Jason;Chiskop;R 80,00;15;B. Khumalo
+31/10/2026;12:30;Jason;Chiskop;R 80,00;15;S. Ndlovu
+31/10/2026;12:30;Jason;Hair Design;R 150,00;50;N. Dube
+31/10/2026;12:30;Nathi;Chiskop;R 80,00;15;K. Molefe
+31/10/2026;12:00;Thabo;Fade;R 120,00;36;S. Ndlovu
+31/10/2026;13:00;Thabo;Chiskop;R 80,00;15;N. Dube
+31/10/2026;13:30;Thabo;Beard Trim;R 70,00;20;N. Dube
+31/10/2026;13:00;Thabo;Hair Design;R 150,00;50;N. Dube
+31/10/2026;13:00;Thabo;Beard Trim;R 70,00;20;N. Dube
+31/10/2026;13:00;Thabo;Fade;R 120,00;35;N. Dube
+31/10/2026;14:30;Lerato;Fade;R 120,00;35;K. Molefe
+31/10/2026;14:30;Thabo;Kids Cut;R 70,00;25;N. Dube
+31/10/2026;14:00;Jason;Hair Design;R 150,00;50;L. Mokoena
+31/10/2026;14:00;Nathi;Chiskop;R 80,00;15;A. van Wyk
+31/10/2026;14:00;Thabo;Other;R 100,00;30;B. Khumalo
+31/10/2026;15:00;Jason;Kids Cut;R 70,00;25;A. van Wyk
+31/10/2026;15:00;Thabo;Chiskop;R 80,00;15;P. Zulu
+31/10/2026;15:00;Lerato;Kids Cut;R 70,00;25;N. Dube
+31/10/2026;15:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+31/10/2026;16:00;Sizwe;Fade;R 120,00;36;S. Ndlovu
+31/10/2026;16:00;Sizwe;Chiskop;R 80,00;15;L. Mokoena
+31/10/2026;16:00;Thabo;Kids Cut;R 70,00;25;P. Zulu
+31/10/2026;17:00;Nathi;Kids Cut;R 70,00;25;A. van Wyk
+31/10/2026;17:30;Thabo;Chiskop;R 80,00;15;P. Zulu
+31/10/2026;17:30;Nathi;Other;R 100,00;30;P. Zulu
+31/10/2026;18:00;Jason;Chiskop;R 80,00;15;T. Nkosi
+31/10/2026;18:00;Sizwe;Chiskop;R 80,00;15;A. van Wyk
+31/10/2026;19:00;Lerato;Fade;R 120,00;35;S. Ndlovu
+07/10/2026;15:00;Lerato;Kids Cut;R 0,00;25;S. Ndlovu
+14/10/2026;16:00;Jason;Kids Cut;R 0,00;25;A. van Wyk
+21/10/2026;15:30;Sizwe;Kids Cut;R 0,00;25;L. Mokoena
+09/10/2026;11:00;Thabo;Fade;-R 120,00;35;L. Mokoena
+23/10/2026;17:00;Sizwe;Fade;-R 120,00;35;A. van Wyk
+10/10/2026;09:00;Lerato;Dreadlocks retwist;R 250,00;90;B. Khumalo
+17/10/2026;09:00;Lerato;Dreadlocks retwist;R 250,00;90;L. Mokoena
+24/10/2026;10:00;Lerato;Dreadlocks retwist;R 250,00;90;A. van Wyk
+31/10/2026;09:00;Lerato;Dreadlocks retwist;R 250,00;90;B. Khumalo

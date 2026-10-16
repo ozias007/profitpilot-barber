@@ -113,3 +113,50 @@ export function sampleData() {
     ui: { view: "dash", sub: {}, month: "2026-09" },
   };
 }
+
+// ---------- example sheets: what a real export might look like (September and October 2026) ----------
+
+/** Example costs that go with the example sheets, labelled "example costs" in the app. Electricity is R2 000 both months. */
+export const EXAMPLE_COSTS = {
+  "2026-09": { Rent: rand(10000), Products: rand(3100), Electricity: rand(2000), "Water & Other": rand(800), "Internet / Phone": rand(650), "Repairs & Misc.": rand(700) },
+  "2026-10": { Rent: rand(10000), Products: rand(3200), Electricity: rand(2000), "Water & Other": rand(810), "Internet / Phone": rand(650), "Repairs & Misc.": rand(740) },
+};
+
+const pad = (n) => String(n).padStart(2, "0");
+const hhmm = (minuteOfDay) => `${pad(Math.floor(minuteOfDay / 60))}:${pad(minuteOfDay % 60)}`;
+const CUSTOMERS = ["T. Nkosi", "L. Mokoena", "B. Khumalo", "S. Ndlovu", "K. Molefe", "P. Zulu", "A. van Wyk", "N. Dube"];
+
+/**
+ * September 2026: a tidy comma file from a card machine (ISO dates, whole-rand prices, no minutes column).
+ */
+export function exampleSeptemberCsv() {
+  const names = Object.fromEntries([...SAMPLE_BARBERS, ...SAMPLE_SERVICES].map((x) => [x.id, x.name]));
+  const lines = ["date,time,barber,service,price"];
+  for (const [d, t, b, s, p] of generateSales(2026, 9, { seed: 21, busy: 1.15 })) {
+    lines.push(`2026-09-${pad(d)},${hhmm(t)},${names[b]},${names[s]},${p / 100}`);
+  }
+  return lines.join("\r\n") + "\r\n";
+}
+
+/**
+ * October 2026: a messier booking-app export — semicolons, day-first dates, "R 120,00" prices, a minutes column,
+ * a customer column (which ProfitPilot must ignore), discounted fades that take ~35 minutes, a new service,
+ * two refunds and three free kids' cuts.
+ */
+export function exampleOctoberCsv() {
+  const r = seededRandom(2210);
+  const names = Object.fromEntries([...SAMPLE_BARBERS, ...SAMPLE_SERVICES].map((x) => [x.id, x.name]));
+  const money = (cents) => (cents < 0 ? "-" : "") + "R " + (Math.abs(cents) / 100).toFixed(2).replace(".", ",");
+  const lines = ["Date;Time;Staff;Service;Amount;Minutes;Customer"];
+  const row = (d, t, b, service, cents, mins) =>
+    lines.push(`${pad(d)}/10/2026;${hhmm(t)};${b};${service};${money(cents)};${mins};${CUSTOMERS[Math.floor(r() * CUSTOMERS.length)]}`);
+
+  for (const [d, t, b, s, p, m] of generateSales(2026, 10, { seed: 22, busy: 1.2 })) {
+    if (s === "fade") row(d, t, names[b], "Fade", r() < 0.4 ? 9000 : 12000, r() < 0.5 ? 35 : 36); // discounts and quicker fades
+    else row(d, t, names[b], names[s], p, m);
+  }
+  [[7, 15 * 60, "Lerato"], [14, 16 * 60, "Jason"], [21, 15 * 60 + 30, "Sizwe"]].forEach(([d, t, b]) => row(d, t, b, "Kids Cut", 0, 25)); // free cuts
+  [[9, 11 * 60, "Thabo"], [23, 17 * 60, "Sizwe"]].forEach(([d, t, b]) => row(d, t, b, "Fade", -12000, 35)); // refunds
+  [[10, 9 * 60, "Lerato"], [17, 9 * 60, "Lerato"], [24, 10 * 60, "Lerato"], [31, 9 * 60, "Lerato"]].forEach(([d, t, b]) => row(d, t, b, "Dreadlocks retwist", 25000, 90));
+  return lines.join("\r\n") + "\r\n";
+}
