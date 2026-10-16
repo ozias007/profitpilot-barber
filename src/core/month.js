@@ -74,6 +74,9 @@ export function summarise(key, monthData, services, barbers) {
       // actual charged ÷ actual minutes; list price ÷ list minutes when nothing sold
       perMin: svcMins ? svcSales / svcMins : listPerMin,
       satCount: cutRows.filter((r) => weekday(year, month, r[DAY]) === 6).length,
+      // what the cuts actually brought in (no refunds), for the Price Planner's "now"
+      chargedCents: cutRows.reduce((a, r) => a + r[PRICE], 0),
+      satChargedCents: cutRows.filter((r) => weekday(year, month, r[DAY]) === 6).reduce((a, r) => a + r[PRICE], 0),
     };
   });
 

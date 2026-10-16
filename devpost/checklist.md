@@ -112,7 +112,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   Learner check: Change one barber from 11% to 12%, then check "Shop keeps" and the Dashboard's Money Kept. Add a barber called "Musa". Do the barber tips sound supportive?
   Commit: `Add Barbers section with commission editing`
 
-- [ ] **7. Sales & Services and the Price Planner**
+- [x] **7. Sales & Services and the Price Planner**
   Becomes usable:
   - Sales & Services with Overview (table, donut, computed Pro Tip), Services (edit name, price and minutes; add a service; "please check" badges; price edits never re-price the past), and Transactions (latest 30).
   - The Price Planner with live sliders, labelled "assumes customers pay the new price".
@@ -217,4 +217,5 @@ Activity mode:
 - Donut legends stack under the donut whenever their card is narrower than 560px, using a CSS container query. At about 1280px the reference's own legend overlaps ("Commission" runs into its percentage, and the warning icon covers "Electricity").
 - Costs: adding a cost whose name is already on the list (ignoring case) is refused with "Electricity is already on the list. Change its amount above." The PRD didn't cover duplicates.
 - "Please check" badges on Barbers (and later Services) are buttons: tapping one marks that imported name as checked. Editing a barber's rate also counts as checking it. A new barber added by hand starts with the shop's most common rate.
+- The Price Planner opens on the lowest earner per minute (the service the Dashboard tip links to), with "Saturdays only" ticked and the list price + R10. With the October example sheet that's Kids Cut: 36 Saturday cuts, so R80 shows +R360. The PRD's +R330 (33 cuts) is checked exactly in `planner.test.js`.
 

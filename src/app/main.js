@@ -10,11 +10,12 @@ import * as dashboard from "./views/dashboard.js";
 import * as reports from "./views/reports.js";
 import * as costs from "./views/costs.js";
 import * as barbers from "./views/barbers.js";
+import * as sales from "./views/sales.js";
 import { placeholder } from "./views/placeholder.js";
 
 const VIEWS = {
   dash: dashboard,
-  sales: placeholder("sales"),
+  sales,
   costs,
   barbers,
   reports,
