@@ -5,7 +5,7 @@ import { formatR, formatR2, formatNum, pct } from "../../core/money.js";
 import { change, costItems, monthLabel, MONTH_NAMES } from "../../core/month.js";
 import { customReport, serviceRows, barberRows, toCsv, transactionsCsv, pctChange } from "../../core/reports.js";
 import { dashboardTips } from "../../core/tips.js";
-import { esc, icon, tile, subtabs, colorAt, changeBadge } from "../ui/dom.js";
+import { esc, icon, tile, downloadCsv, subtabs, colorAt, changeBadge } from "../ui/dom.js";
 import { donut } from "../ui/charts.js";
 import { importCard, bindImport } from "./import.js";
 
@@ -132,14 +132,6 @@ export function render(ctx) {
 
 // ---------- downloads ----------
 
-function download(filename, text) {
-  const url = URL.createObjectURL(new Blob(["﻿" + text], { type: "text/csv;charset=utf-8" })); // the BOM makes Excel read R and accents correctly
-  const a = Object.assign(document.createElement("a"), { href: url, download: filename });
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
 
 const rand = (cents) => (cents / 100).toFixed(2);
 
@@ -176,7 +168,7 @@ export function bind(el, ctx) {
   el.querySelectorAll("[data-csv]").forEach((b) => b.addEventListener("click", () => {
     const kind = b.dataset.csv;
     const names = { month: "monthly-summary", service: "service-report", barber: "barber-report", tx: "transactions" };
-    download(`profitpilot-${names[kind]}-${ctx.key}.csv`, csvFor(kind, ctx));
+    downloadCsv(`profitpilot-${names[kind]}-${ctx.key}.csv`, csvFor(kind, ctx));
     ctx.toast("Downloaded. It opens in Excel.");
   }));
   const form = el.querySelector("#customForm");

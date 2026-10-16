@@ -28,7 +28,7 @@ export function render(ctx) {
   const { s, p, sub } = ctx;
   const tab = TABS.some(([k]) => k === sub) ? sub : "overview";
   const items = costItems(s).map((it, i) => ({ ...it, color: colorAt(i) }));
-  const jumps = costJumps(s, p);
+  const jumps = ctx.data.prefs.notify?.costJump === false ? [] : costJumps(s, p); // the warning can be turned off in Settings
   const flagged = new Set(jumps.map((j) => j.cost));
   const increases = Object.entries(s.costs)
     .filter(([name]) => p?.costs[name] > 0)

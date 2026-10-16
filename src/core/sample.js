@@ -92,7 +92,6 @@ export function sampleData() {
     prefs: {
       theme: "system",
       showCommission: true,
-      weeklySummary: true,
       notify: { importReminder: true, costJump: true, satFull: true, monday: true, restock: true },
     },
     dismissed: {},

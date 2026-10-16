@@ -26,8 +26,9 @@ export function costAlertStrip(alerts) {
   return `<div class="alertstrip" role="alert">${icon("i-alert")}<span><b>${parts}.</b></span><button class="linkbtn" data-goto="costs/edit">Check costs →</button></div>`;
 }
 
-export function render({ s, p }) {
+export function render({ data, s, p }) {
   const picked = dashboardTips(s, p);
+  if (data.prefs.notify?.costJump === false) picked.alerts = []; // turned off in Settings › Notifications
   const kept = s.kept == null
     ? `<span class="hint">Add your costs to see money kept</span><button class="linkbtn" data-goto="costs/edit">Add costs →</button>`
     : `<strong class="n">${formatR(s.kept)}</strong><span class="sub">out of ${formatR(s.salesCents)} taken in</span>

@@ -11,7 +11,7 @@ import * as reports from "./views/reports.js";
 import * as costs from "./views/costs.js";
 import * as barbers from "./views/barbers.js";
 import * as sales from "./views/sales.js";
-import { placeholder } from "./views/placeholder.js";
+import * as settings from "./views/settings.js";
 
 const VIEWS = {
   dash: dashboard,
@@ -19,7 +19,7 @@ const VIEWS = {
   costs,
   barbers,
   reports,
-  settings: placeholder("settings"),
+  settings,
 };
 
 const root = document.documentElement;
@@ -58,6 +58,7 @@ function applyTheme() {
 export const isDark = () => (root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches);
 
 function render() {
+  applyTheme();
   const { view, sub } = currentRoute();
   const keys = monthKeys();
   if (!keys.includes(data.ui.month)) data.ui.month = keys.at(-1);
@@ -135,7 +136,7 @@ function start() {
   });
 
   $("avatar").addEventListener("click", () => go("settings"));
-  $("themeBtn").addEventListener("click", () => update((d) => { d.prefs.theme = isDark() ? "light" : "dark"; applyTheme(); }));
+  $("themeBtn").addEventListener("click", () => update((d) => { d.prefs.theme = isDark() ? "light" : "dark"; }));
   $("month").addEventListener("change", (e) => update((d) => { d.ui.month = e.target.value; }, { uiOnly: true }));
 
   // remember the section and tab, so he comes back where he left off

@@ -67,3 +67,13 @@ export function changeBadge(pctChange, goodUp = true) {
   const good = goodUp ? pctChange >= 0 : pctChange <= 0;
   return `<span class="d ${good ? "up" : "dn"}">${pctChange >= 0 ? "+" : ""}${pctChange.toFixed(0)}% vs last month ${icon("i-trend")}</span>`;
 }
+
+/** Save text as a CSV file (opens in Excel). The byte-order mark makes Excel read R and accents as UTF-8. */
+export function downloadCsv(filename, text) {
+  const url = URL.createObjectURL(new Blob(["﻿" + text], { type: "text/csv;charset=utf-8" }));
+  const a = Object.assign(document.createElement("a"), { href: url, download: filename });
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}

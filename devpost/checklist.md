@@ -142,7 +142,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   Learner check: Filter the Custom Report to Saturdays + Kids Cut, download the Transactions CSV and open it in Excel, then press Export PDF on the Service Report and look at the print preview.
   Commit: `Add Reports with custom filters, PDF and CSV export`
 
-- [ ] **9. Settings, reminders and the README**
+- [x] **9. Settings, reminders and the README**
   Becomes usable:
   - Settings with all five screens:
     - **Shop Details:** editable, with the top bar updating; Data Management; Preferences (no auto-backup toggle).
@@ -220,4 +220,7 @@ Activity mode:
 - The Price Planner opens on the lowest earner per minute (the service the Dashboard tip links to), with "Saturdays only" ticked and the list price + R10. With the October example sheet that's Kids Cut: 36 Saturday cuts, so R80 shows +R360. The PRD's +R330 (33 cuts) is checked exactly in `planner.test.js`.
 - The Transactions CSV export uses the import's own columns (date, time, barber, service, price, minutes), so an export imports back unchanged; there's a round-trip test. The CSV files start with a byte-order mark so Excel reads them as UTF-8.
 - Known limit: the reference palette has six series colours, so a 7th service or barber reuses the first colour in charts.
+- The two "weekly summary" switches in the reference (Preferences and Notifications) control the same thing: the Monday card (`prefs.notify.monday`). The unused `prefs.weeklySummary` was removed.
+- The temporary placeholder page for unbuilt sections was deleted, because every section is now real. The CSV download helper is shared from `ui/dom.js`.
+- Reminders were verified in the browser with the clock set to Monday 2 November 2026: the Monday card (week 19–25 Oct) and "Saturday mornings full" appear, and a dismissal survives a reload. The 1st–7th and 20th–25th windows are covered by `reminders.test.js`.
 
