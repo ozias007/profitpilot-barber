@@ -86,7 +86,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   Learner check: Load the example sheet and read the three Dashboard tips for October. Do they read like advice you'd give a client? Change nothing yet; just note anything that feels off.
   Commit: `Add rule-based tips to the Dashboard`
 
-- [ ] **5. Costs: edit them and see money kept move exactly**
+- [x] **5. Costs: edit them and see money kept move exactly**
   Becomes usable:
   - The Costs section with all four tabs (Overview donut and Cost Trend, Edit Costs, Cost Breakdown, Trends), its three tiles, the cost-jump alert and the warning icons.
   - Editing, adding and removing costs works, with validation and toasts; the read-only Commission row links to Barbers.
@@ -214,4 +214,6 @@ Activity mode:
   - the "money kept fell vs cost jump" de-duplication was removed, since there's nothing left to de-duplicate.
 
   The `prd.md > Tips` table and acceptance were updated. The test is in `tips.test.js`.
+- Donut legends stack under the donut whenever their card is narrower than 560px, using a CSS container query. At about 1280px the reference's own legend overlaps ("Commission" runs into its percentage, and the warning icon covers "Electricity").
+- Costs: adding a cost whose name is already on the list (ignoring case) is refused with "Electricity is already on the list. Change its amount above." The PRD didn't cover duplicates.
 

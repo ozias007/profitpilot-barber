@@ -1,6 +1,6 @@
 // Charts drawn as HTML/SVG strings. Each part carries a data-tip for hover, touch and focus.
 
-import { SLOTS } from "../../core/month.js";
+import { SLOTS, MONTH_NAMES } from "../../core/month.js";
 import { formatR, pct } from "../../core/money.js";
 import { esc, tipAttr } from "./dom.js";
 
@@ -33,3 +33,51 @@ export function moneyBar(items, total) {
     })
     .join("")}</div>`;
 }
+
+/** Donut of shares. items: [{ name, cents, color }]; total in the middle. fmt formats amounts (rand by default). */
+export function donut(items, total, label, fmt = formatR) {
+  const r = 72, c = 2 * Math.PI * r;
+  let offset = 0;
+  const segs = items.filter((it) => it.cents > 0 && total > 0).map((it) => {
+    const len = (it.cents / total) * c;
+    const seg = `<circle r="${r}" cx="100" cy="100" stroke="var(${it.color})" stroke-width="30" stroke-dasharray="${Math.max(len - 2, 0)} ${c}" stroke-dashoffset="${-offset}" transform="rotate(-90 100 100)" tabindex="0" ${tipAttr(`<b>${esc(it.name)}</b>${fmt(it.cents)} · ${pct(it.cents, total).toFixed(1)}%`)}></circle>`;
+    offset += len;
+    return seg;
+  }).join("");
+  return `<svg viewBox="0 0 200 200" role="img" aria-label="${esc(label)}">${segs}<text x="100" y="98" text-anchor="middle" font-size="21" font-weight="800" fill="var(--ink)" stroke="none">${fmt(total)}</text><text x="100" y="119" text-anchor="middle" font-size="11.5" fill="var(--muted)" stroke="none">${esc(label)}</text></svg>`;
+}
+
+/** Y axis gridlines labelled R0 … R8k. Returns the grid markup and a value → y function. */
+function axes(W, H, pad, max) {
+  const y = (v) => H - pad.b - (v / max) * (H - pad.t - pad.b);
+  let g = "";
+  for (let i = 0; i <= 4; i++) {
+    const v = (max / 4) * i;
+    g += `<line x1="${pad.l}" x2="${W - pad.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${pad.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)" stroke="none">${v ? "R" + +(v / 100000).toFixed(1) + "k" : "R0"}</text>`;
+  }
+  return { g, y };
+}
+const niceMax = (values) => Math.ceil(Math.max(100, ...values) / 200000) * 200000; // round up to R2k steps (values in cents)
+const short = (s) => MONTH_NAMES[s.month - 1].slice(0, 3);
+
+/** Cost Trend: daily costs and daily sales as two lines across the month. */
+export function trendLines(s, W) {
+  const H = 230, pad = { l: 46, r: 12, t: 12, b: 26 }, n = s.days;
+  const max = niceMax([...s.daily, ...s.dailyCost]);
+  const { g: grid, y } = axes(W, H, pad, max);
+  const x = (i) => pad.l + (i / (n - 1)) * (W - pad.l - pad.r);
+  let g = grid;
+  [1, 7, 14, 21, 28].forEach((d) => (g += `<text x="${x(d - 1)}" y="${H - 7}" text-anchor="middle" font-size="11" fill="var(--muted)" stroke="none">${short(s)} ${d}</text>`));
+  [[s.dailyCost, "--s1"], [s.daily, "--green"]].forEach(([values, color]) => {
+    g += `<path d="${values.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(Math.max(0, v)).toFixed(1)).join("")}" stroke="var(${color})" stroke-width="2"/>`;
+    values.forEach((v, i) => { if (i % 3 === 0) g += `<circle cx="${x(i)}" cy="${y(Math.max(0, v))}" r="4" fill="var(${color})" stroke="var(--surface)" stroke-width="2"/>`; });
+  });
+  const step = (W - pad.l - pad.r) / (n - 1);
+  for (let i = 0; i < n; i++) {
+    g += `<rect x="${x(i) - step / 2}" y="${pad.t}" width="${step}" height="${H - pad.t - pad.b}" fill="transparent" stroke="none" ${tipAttr(`<b>${i + 1} ${short(s)}</b>Sales: ${formatR(s.daily[i])}<br>Costs: ${formatR(s.dailyCost[i])}`)}/>`;
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Daily sales and costs">${g}</svg>`;
+}
+
+/** Charts that need the card's real width are drawn after the page is on screen: <div class="chart" data-chart="trend">. */
+export const WIDTH_CHARTS = { trend: trendLines };

@@ -301,3 +301,6 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 .alertstrip>svg{width:17px;height:17px;color:var(--red);flex:none}
 .alertstrip b{color:var(--red)}
 .alertstrip span{flex:1;min-width:12rem}
+/* donut legends overlap when their card is narrow (the reference does too at ~1280px): stack legend under the donut */
+.card:has(.donut){container-type:inline-size}
+@container (max-width:560px){.donut{grid-template-columns:1fr;justify-items:center}.donut svg{max-width:210px}}

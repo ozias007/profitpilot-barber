@@ -5,14 +5,16 @@ import { SECTIONS, currentRoute, go, onRouteChange } from "./router.js";
 import { createStore } from "./store.js";
 import { esc, icon, bindTips, toast } from "./ui/dom.js";
 import { renderBanners, bindBanners } from "./ui/banners.js";
+import { WIDTH_CHARTS } from "./ui/charts.js";
 import * as dashboard from "./views/dashboard.js";
 import * as reports from "./views/reports.js";
+import * as costs from "./views/costs.js";
 import { placeholder } from "./views/placeholder.js";
 
 const VIEWS = {
   dash: dashboard,
   sales: placeholder("sales"),
-  costs: placeholder("costs"),
+  costs,
   barbers: placeholder("barbers"),
   reports,
   settings: placeholder("settings"),
@@ -60,6 +62,7 @@ function render() {
   const key = data.ui.month;
   const prev = previousKey(keys, key);
   const ctx = { data, key, label: monthLabel(key), s: summaries[key], p: prev ? summaries[prev] : null, sub, update, go, toast, store };
+  lastCtx = ctx;
 
   $("menu").querySelectorAll("button").forEach((b) => b.setAttribute("aria-current", b.dataset.v === view ? "page" : "false"));
   $("month").innerHTML = keys.slice().reverse().map((k) => `<option value="${k}">${monthLabel(k)}</option>`).join("");
@@ -79,8 +82,18 @@ function render() {
   const el = $("view");
   el.innerHTML = V.render(ctx);
   V.bind?.(el, ctx);
+  drawCharts(ctx);
   bindTips(el);
 }
+
+/** Draw width-dependent charts at their card's real width (again whenever the window is resized). */
+function drawCharts(ctx) {
+  document.querySelectorAll("#view [data-chart]").forEach((el) => {
+    el.innerHTML = WIDTH_CHARTS[el.dataset.chart](ctx.s, Math.max(280, Math.floor(el.clientWidth)));
+    bindTips(el);
+  });
+}
+let lastCtx = null;
 
 function closeMenu() {
   document.body.classList.remove("nav-open");
@@ -114,6 +127,9 @@ function start() {
   $("month").addEventListener("change", (e) => update((d) => { d.ui.month = e.target.value; }, { uiOnly: true }));
 
   // remember the section and tab, so he comes back where he left off
+  let resizeTimer;
+  addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => lastCtx && drawCharts(lastCtx), 120); });
+
   onRouteChange(({ view, sub }) => update((d) => { d.ui.view = view; d.ui.sub = { ...d.ui.sub, [view]: sub }; }, { uiOnly: true }));
   if (!location.hash && data.ui.view && data.ui.view !== "dash") {
     history.replaceState(null, "", `#${data.ui.view}${data.ui.sub?.[data.ui.view] ? "/" + data.ui.sub[data.ui.view] : ""}`);

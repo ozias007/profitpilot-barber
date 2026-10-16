@@ -115,3 +115,15 @@ test("average charged leaves refunds out but counts free cuts at R0", () => {
   const kids = s.bySvc.find((x) => x.id === "kids");
   assert.equal(kids.avgCents, (7000 + 0 + 7000) / 3);
 });
+
+test("costs: +R760 electricity lowers kept by exactly R760; adding then removing Security R450 restores it", () => {
+  const base = summarise("2026-10", { sales, costs: { Rent: 1000000, Electricity: 200000 } }, services, barbers);
+  const up = summarise("2026-10", { sales, costs: { Rent: 1000000, Electricity: 276000 } }, services, barbers);
+  assert.equal(base.kept - up.kept, 76000);
+  const withSecurity = summarise("2026-10", { sales, costs: { Rent: 1000000, Electricity: 276000, Security: 45000 } }, services, barbers);
+  assert.equal(up.kept - withSecurity.kept, 45000);
+  const removed = summarise("2026-10", { sales, costs: { Rent: 1000000, Electricity: 276000 } }, services, barbers);
+  assert.equal(removed.kept, up.kept);
+  assert.equal(withSecurity.costTotal - up.costTotal, 45000); // the total moves with it; commission doesn't
+  assert.equal(withSecurity.commission, up.commission);
+});
