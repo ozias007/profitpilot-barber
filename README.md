@@ -29,7 +29,7 @@ To try the real import, download [`examples/sales-2026-10.csv`](examples/sales-2
 
 ## Run it locally
 
-You need [Node.js](https://nodejs.org/) 18 or newer. There are no dependencies to install.
+You need [Node.js](https://nodejs.org/) 20 or newer (built and tested on 24). There are no dependencies to install.
 
 ```
 npm start      # http://localhost:8000
@@ -40,7 +40,7 @@ npm test       # node --test: CSV parsing, money maths, tips, planner, reports, 
 
 ## How it's built
 
-Plain HTML, CSS and JavaScript modules, with no framework and no build step. The page is about 100 KB, which matters on prepaid mobile data.
+Plain HTML, CSS and JavaScript modules, with no framework and no build step. The whole app is about 55 KB to download (compressed), which matters on prepaid mobile data.
 
 - **`src/core/`** is the pure logic (money in cents, CSV reading, the month maths, tips, the planner, reports, reminders). It never touches the screen and is fully covered by `test/`.
 - **`src/app/`** is the screens. Every change goes through one cycle: change → save → recalculate → redraw.

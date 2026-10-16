@@ -223,4 +223,8 @@ Activity mode:
 - The two "weekly summary" switches in the reference (Preferences and Notifications) control the same thing: the Monday card (`prefs.notify.monday`). The unused `prefs.weeklySummary` was removed.
 - The temporary placeholder page for unbuilt sections was deleted, because every section is now real. The CSV download helper is shared from `ui/dom.js`.
 - Reminders were verified in the browser with the clock set to Monday 2 November 2026: the Monday card (week 19–25 Oct) and "Saturday mornings full" appear, and a dismissal survives a reload. The 1st–7th and 20th–25th windows are covered by `reminders.test.js`.
+- Completion pass:
+  - all 21 views were checked at 1440, 1280, 1024 and 390px, light and dark, with no console errors;
+  - the only sideways scroll (Price Planner at 1024px) was fixed with smaller, wrapping result figures;
+  - the README's size claim was corrected to measured numbers (190 KB raw, about 55 KB compressed), and its Node requirement to 20+.
 

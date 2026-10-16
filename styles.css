@@ -309,3 +309,5 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 .dl .dlcard b{display:block;font-size:.84rem}
 .dlacts{display:block;font-size:.76rem;color:var(--muted)}
 .dlacts .linkbtn{font-size:.76rem}
+/* the planner's "R2.72 → R3.20" results are wider than a normal tile: smaller, and allowed to wrap */
+.planout .kpi strong{font-size:1.45rem;white-space:normal}

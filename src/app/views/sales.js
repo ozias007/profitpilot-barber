@@ -33,7 +33,7 @@ function proTip(services) {
 function planOut(svc, label) {
   const r = planPrice(svc, plan);
   const day = plan.satOnly ? "Saturday " : "";
-  return `<div class="grid k3" style="gap:12px">
+  return `<div class="grid k3 planout" style="gap:12px">
    <div class="card kpi" style="padding:14px">${tile("i-receipt", "blue")}<div><small>${esc(day + plural(svc.name).toLowerCase())} a month</small><strong class="n">${r.n} → ${r.kept}</strong><span class="sub">${r.n - r.kept ? `${r.n - r.kept} fewer customers` : "same number of customers"}</span></div></div>
    <div class="card kpi" style="padding:14px">${tile("i-wallet", r.diffCents >= 0 ? "green" : "red")}<div><small>Extra money a month</small><strong class="n ${r.diffCents >= 0 ? "up" : "dn"}">${r.diffCents >= 0 ? "+" : ""}${formatR(r.diffCents)}</strong><span class="sub">${formatR(r.nowCents)} → ${formatR(r.afterCents)}</span></div></div>
    <div class="card kpi" style="padding:14px">${tile("i-clock", "purple")}<div><small>Earnings per chair-minute</small><strong class="n">${formatR2(r.perMinNow)} → ${formatR2(r.perMinNew)}</strong><span class="sub">${r.freedMinutes ? `${r.freedMinutes} chair-minutes freed for other cuts` : `at ${svc.minutes} minutes a cut`}</span></div></div></div>
