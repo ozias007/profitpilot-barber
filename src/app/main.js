@@ -1,9 +1,10 @@
-// Start-up and the one update cycle every change goes through: change the data → recalculate → redraw.
+// Start-up and the one update cycle every change goes through: change the data → save → recalculate → redraw.
 
-import { sampleData } from "../core/sample.js";
 import { summarise, previousKey, monthLabel } from "../core/month.js";
 import { SECTIONS, currentRoute, go, onRouteChange } from "./router.js";
+import { createStore } from "./store.js";
 import { esc, icon, bindTips, toast } from "./ui/dom.js";
+import { renderBanners, bindBanners } from "./ui/banners.js";
 import * as dashboard from "./views/dashboard.js";
 import * as reports from "./views/reports.js";
 import { placeholder } from "./views/placeholder.js";
@@ -20,7 +21,8 @@ const VIEWS = {
 const root = document.documentElement;
 const $ = (id) => document.getElementById(id);
 
-let data = sampleData();
+const store = createStore(() => window.localStorage);
+let data = store.load();
 let summaries = {};
 
 function recalc() {
@@ -28,9 +30,14 @@ function recalc() {
   for (const [key, m] of Object.entries(data.months)) summaries[key] = summarise(key, m, data.services, data.barbers);
 }
 
-/** Apply a change to the data, then recalculate and redraw. Every edit in the app goes through here. */
-export function update(change) {
-  change(data);
+/**
+ * Apply a change, save it, recalculate and redraw. Every edit in the app goes through here.
+ * `change` either edits the document in place or returns a whole new document (imports, Clear All Data).
+ * { uiOnly: true } marks changes that only move around (month, section): they don't overwrite unreadable saved data.
+ */
+export function update(change, { uiOnly = false } = {}) {
+  data = change(data) ?? data;
+  if (!(uiOnly && store.unreadable)) store.save(data);
   recalc();
   render();
 }
@@ -52,7 +59,7 @@ function render() {
   if (!keys.includes(data.ui.month)) data.ui.month = keys.at(-1);
   const key = data.ui.month;
   const prev = previousKey(keys, key);
-  const ctx = { data, key, label: monthLabel(key), s: summaries[key], p: prev ? summaries[prev] : null, sub, update, go, toast };
+  const ctx = { data, key, label: monthLabel(key), s: summaries[key], p: prev ? summaries[prev] : null, sub, update, go, toast, store };
 
   $("menu").querySelectorAll("button").forEach((b) => b.setAttribute("aria-current", b.dataset.v === view ? "page" : "false"));
   $("month").innerHTML = keys.slice().reverse().map((k) => `<option value="${k}">${monthLabel(k)}</option>`).join("");
@@ -65,6 +72,9 @@ function render() {
   $("title").textContent = title;
   $("sub").textContent = subtitle;
   document.title = `${title.replace(/ 👋$/, "")} · ProfitPilot Barber`;
+
+  $("banners").innerHTML = renderBanners(ctx);
+  bindBanners($("banners"), ctx);
 
   const el = $("view");
   el.innerHTML = V.render(ctx);
@@ -101,12 +111,22 @@ function start() {
 
   $("avatar").addEventListener("click", () => go("settings"));
   $("themeBtn").addEventListener("click", () => update((d) => { d.prefs.theme = isDark() ? "light" : "dark"; applyTheme(); }));
-  $("month").addEventListener("change", (e) => update((d) => { d.ui.month = e.target.value; }));
+  $("month").addEventListener("change", (e) => update((d) => { d.ui.month = e.target.value; }, { uiOnly: true }));
 
-  onRouteChange(render);
+  // remember the section and tab, so he comes back where he left off
+  onRouteChange(({ view, sub }) => update((d) => { d.ui.view = view; d.ui.sub = { ...d.ui.sub, [view]: sub }; }, { uiOnly: true }));
+  if (!location.hash && data.ui.view && data.ui.view !== "dash") {
+    history.replaceState(null, "", `#${data.ui.view}${data.ui.sub?.[data.ui.view] ? "/" + data.ui.sub[data.ui.view] : ""}`);
+  }
+  const opened = currentRoute(); // opened straight on a section (a link or a refresh): that's where he is now
+  data.ui.view = opened.view;
+  data.ui.sub = { ...data.ui.sub, [opened.view]: opened.sub };
+  if (!store.unreadable) store.save(data);
+
   applyTheme();
   recalc();
   render();
+  if (store.unreadable) toast("Saved data couldn't be read; showing sample data.");
 }
 
 start();

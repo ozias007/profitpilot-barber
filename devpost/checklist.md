@@ -49,7 +49,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   Learner check: Open Reports, tap "Try with an example sheet", then check the month selector and the Dashboard. Then import `examples/sales-2026-10.csv` with the file picker, and also a messy file of your own (semicolons, `R 1 200,00`, a refund). Is the summary right?
   Commit: `Add CSV parser and sales import with example sheets`
 
-- [ ] **3. Imports are safe, and everything survives a reload**
+- [x] **3. Imports are safe, and everything survives a reload**
   Becomes usable:
   - New service or barber names stop the import at the "New in this file" step (minutes and list price, or commission rate, with "please check" badges).
   - Re-importing a month asks "Replace them with this file?".
@@ -195,3 +195,14 @@ Activity mode:
 - Re-importing a month keeps that month's existing costs; only the sales are replaced. The PRD covered sales only, and losing typed costs on a corrected re-import would surprise Sipho.
 - Refunds reduce sales but aren't counted as cuts and use no chair time. The PRD said only that they "reduce sales".
 - At the slice 2 learner check, the import summary gained a plain reason per skipped row ("Row 9: “31/02/2026” isn't a real date.") and a rows-read line ("Read 11 rows: 9 sales, 1 refund, 1 free cut. 2 rows skipped."). Holding back prices above R5 000 until confirmed moved into slice 3. Learner feedback.
+- `finalizeImport()` (applying the answers from "New in this file") is in `core/importer.js`, and `store.js` takes its storage as a parameter. That way the R5 000 answers, the new-name edits and full or blocked storage are all unit-tested in Node, not only in the browser.
+- "Please check" stays on a new service or barber until the owner ticks **Checked** in the step (or confirms it later on Services or Commission). Pressing Finish alone doesn't confirm anything. The PRD said badges last "until confirmed" but didn't say what confirming is.
+- Opening the app straight on a section (a link or a refresh) now counts as "where he left off". Found in the browser check: only clicks were being remembered.
+- Learner feedback at the slice 3 check:
+  - a new service whose only sales were free cuts now starts with an empty list price ("no paid sale") instead of R0, which used to block Finish;
+  - step errors appear next to their own item and name it ("Shape-up needs a list price.");
+  - an unanswered R5 000 row says "Row 10: choose Keep R12 000 or It's in cents.";
+  - typed values survive the redraw.
+
+  The checking moved into `core/importer.js` as `checkStepAnswers()`, with tests.
+

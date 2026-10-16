@@ -281,3 +281,16 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 .empty-note{color:var(--muted);font-size:.86rem;margin:0}
 .kpi .hint{display:block;font-size:.95rem;font-weight:700;color:var(--muted);margin-top:4px;line-height:1.3}
 .mbar .segs{overflow-x:auto}
+.sub a,.okmsg a{color:var(--brand);font-weight:700}
+.banner{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;margin:0 0 16px;font-size:.88rem;background:var(--blue-wash)}
+.banner>svg{width:18px;height:18px;color:var(--brand);flex:none;margin-top:2px}
+.banner>div{flex:1}
+.banner.warn{background:var(--red-wash)}.banner.warn>svg{color:var(--red)}
+.banner .iconx{padding:2px 4px}
+.badge-check{display:inline-block;font-size:.68rem;font-weight:700;color:var(--orange);background:var(--orange-wash);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.step{margin-top:16px;border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:14px}
+.step h3{margin:0;font-size:1rem}
+.step .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.step .row>b{min-width:10rem}
+.step .row label{display:inline-flex;gap:6px;align-items:center;font-size:.86rem;font-weight:600}
+.step .actions{display:flex;gap:10px;flex-wrap:wrap}

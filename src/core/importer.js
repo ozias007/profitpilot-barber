@@ -3,7 +3,7 @@
 // Every other column (customer names, phone numbers…) is never touched, so it can't be stored.
 
 import { parseCsv } from "./csv.js";
-import { parsePrice } from "./money.js";
+import { parsePrice, formatR } from "./money.js";
 import { daysInMonth } from "./month.js";
 
 /** Heading words that identify each field (case-insensitive). Exact matches win; otherwise "contains". */
@@ -155,7 +155,9 @@ export function importSales(text, known) {
     if (price < 0) { summary.refunds++; summary.refundCents += price; }
     else if (price === 0) summary.freeCuts++;
     else summary.sales++;
-    if (price > CHECK_ABOVE_CENTS) summary.checkPrices.push({ line, priceCents: price });
+    if (price > CHECK_ABOVE_CENTS) {
+      summary.checkPrices.push({ line, priceCents: price, key, index: months[key].length - 1, service: service.name, barber: barber.name });
+    }
   }
 
   if (!Object.keys(months).length) {
@@ -181,7 +183,8 @@ export function importSales(text, known) {
     if (avg !== s.minutes) mismatches.push({ serviceId: s.id, name: s.name, fileMinutes: avg, listMinutes: s.minutes });
   }
 
-  return { months, newServices, newBarbers, mismatches, summary };
+  // which services had minutes in the file (finalizeImport leaves those rows alone)
+  return { months, newServices, newBarbers, mismatches, summary, minutesFromFile: [...fileMinutes.keys()] };
 }
 
 /**
@@ -214,4 +217,78 @@ export function applyImport(doc, result, { exampleCosts } = {}) {
   }
   next.ui = { ...next.ui, month: Object.keys(result.months).sort().at(-1) };
   return next;
+}
+
+/**
+ * Apply the owner's answers from the "New in this file" step to an import result (returns a new result).
+ * @param edits {
+ *   services: { [id]: { priceCents, minutes, confirmed } },
+ *   barbers:  { [id]: { ratePct, confirmed } },
+ *   prices:   { [line]: "keep" | "cents" }   // every price over R5 000 must have an answer
+ * }
+ * "cents" means the file held cents in a rand column: R12 000 becomes R120.00.
+ * @returns the finished result, or { error } when a price to check has no answer yet.
+ */
+export function finalizeImport(result, edits = {}) {
+  const next = structuredClone(result);
+  for (const s of next.newServices) Object.assign(s, edits.services?.[s.id]);
+  for (const b of next.newBarbers) Object.assign(b, edits.barbers?.[b.id]);
+
+  const newMinutes = new Map(next.newServices.map((s) => [s.id, s.minutes]));
+  const minutesFromFile = new Set(result.minutesFromFile || []);
+  for (const sales of Object.values(next.months)) {
+    for (const r of sales) {
+      // a new service's sales without file minutes take the minutes the owner confirmed
+      if (newMinutes.has(r[3]) && !minutesFromFile.has(r[3])) r[5] = newMinutes.get(r[3]);
+    }
+  }
+
+  for (const c of next.summary.checkPrices) {
+    const answer = edits.prices?.[c.line];
+    if (answer !== "keep" && answer !== "cents") return { error: unansweredPrice(c) };
+    if (answer === "cents") {
+      const cents = Math.round(c.priceCents / 100);
+      next.months[c.key][c.index][4] = cents;
+      c.priceCents = cents;
+    }
+    c.answer = answer;
+  }
+  return next;
+}
+
+/**
+ * Check what the owner typed in the "New in this file" step.
+ * @param items { services: newServices, barbers: newBarbers, prices: checkPrices } from the import result(s)
+ * @param draft the raw form values: "min:<id>", "price:<id>", "rate:<id>", "ok:svc:<id>", "ok:barber:<id>", "row:<line>"
+ * @returns { edits, errors } — edits for finalizeImport; errors keyed "svc:<id>", "barber:<id>" or "row:<line>",
+ *   each naming the item it belongs to, so the screen can show it right next to that item.
+ */
+export function checkStepAnswers(items, draft) {
+  const edits = { services: {}, barbers: {}, prices: {} };
+  const errors = {};
+  for (const s of items.services) {
+    const minutes = Number(String(draft[`min:${s.id}`] ?? s.minutes).trim());
+    const priceText = String(draft[`price:${s.id}`] ?? "").trim();
+    const priceCents = parsePrice(priceText);
+    if (!priceText) errors[`svc:${s.id}`] = `${s.name} needs a list price.`;
+    else if (!(priceCents > 0)) errors[`svc:${s.id}`] = `${s.name}'s list price must be above R0.`;
+    else if (!(Number.isInteger(minutes) && minutes > 0)) errors[`svc:${s.id}`] = `${s.name} needs its minutes, as a whole number above 0.`;
+    edits.services[s.id] = { minutes, priceCents, confirmed: Boolean(draft[`ok:svc:${s.id}`]) };
+  }
+  for (const b of items.barbers) {
+    const ratePct = Number(String(draft[`rate:${b.id}`] ?? b.ratePct).trim().replace(",", "."));
+    if (!(ratePct >= 0 && ratePct <= 100)) errors[`barber:${b.id}`] = `${b.name}'s commission must be between 0% and 100%.`;
+    edits.barbers[b.id] = { ratePct, confirmed: Boolean(draft[`ok:barber:${b.id}`]) };
+  }
+  for (const c of items.prices) {
+    const answer = draft[`row:${c.line}`];
+    if (answer !== "keep" && answer !== "cents") errors[`row:${c.line}`] = unansweredPrice(c);
+    else edits.prices[c.line] = answer;
+  }
+  return { edits, errors };
+}
+
+/** "Row 10: choose Keep R12 000 or It's in cents." */
+function unansweredPrice(c) {
+  return `Row ${c.line}: choose Keep ${formatR(c.priceCents)} or It's in cents.`;
 }
