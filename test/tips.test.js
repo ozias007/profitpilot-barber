@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { busiestSlot, costJumps, lowestEarner, discountGap, keptFell, quietSlot, barberTips, allTips, pickDashboardTips, nextStep } from "../src/core/tips.js";
+import { busiestSlot, costJumps, lowestEarner, discountGap, keptFell, quietSlot, barberTips, allTips, pickDashboardTips, dashboardTips, nextStep } from "../src/core/tips.js";
 
 // A hand-made month summary with only the fields the rules read. Heat rows Mon→Sun, 6 slots each.
 const flat = (v) => Array.from({ length: 7 }, () => Array(6).fill(v));
@@ -108,11 +108,11 @@ test("barber tips are supportive, and the low-share tip needs < 60% of the team 
 const tip = (id, impactCents, extra = {}) => ({ id, impactCents, action: `do ${id}`, ...extra });
 
 test("Dashboard picks the top 2 by rand impact, and the busiest slot always takes 3rd place", () => {
-  const tips = [tip("cost:Rent", 50000, { cost: "Rent" }), tip("discount", 40000), tip("lowest", 30000), tip("keptFell", 20000, { cause: "sales" }), tip("busiest", null), tip("quiet", null)];
+  const tips = [tip("keptFell", 50000, { cause: "sales" }), tip("discount", 40000), tip("lowest", 30000), tip("busiest", null), tip("quiet", null)];
   const picked = pickDashboardTips(tips);
-  assert.deepEqual(picked.dashboard.map((t) => t.id), ["cost:Rent", "discount", "busiest"]);
-  assert.deepEqual(picked.rest.map((t) => t.id), ["lowest", "keptFell", "quiet"]);
-  assert.equal(nextStep(picked), "do cost:Rent");
+  assert.deepEqual(picked.dashboard.map((t) => t.id), ["keptFell", "discount", "busiest"]);
+  assert.deepEqual(picked.rest.map((t) => t.id), ["lowest", "quiet"]);
+  assert.equal(nextStep(picked), "do keptFell");
 });
 
 test("without a busiest slot, 3rd place goes to the next by impact; tips without an amount come last", () => {
@@ -121,10 +121,23 @@ test("without a busiest slot, 3rd place goes to the next by impact; tips without
   assert.deepEqual(pickDashboardTips([tip("quiet", null), tip("busiest", null)]).dashboard.map((t) => t.id), ["quiet", "busiest"]);
 });
 
-test("no double counting: a cost that caused 'money kept fell' isn't shown again as a cost jump", () => {
-  const picked = pickDashboardTips([tip("cost:Electricity", 76000, { cost: "Electricity" }), tip("keptFell", 90000, { cause: "Electricity" }), tip("cost:Water", 30000, { cost: "Water" })]);
-  assert.deepEqual(picked.dashboard.map((t) => t.id), ["keptFell", "cost:Water"]);
-  assert.ok(!picked.rest.some((t) => t.id === "cost:Electricity"));
+test("a cost jump is an alert, shown even when it ranks below the top 3 tips, and never also a tip", () => {
+  const heat = flat(1);
+  heat[5][1] = 5.3; // Saturday queue
+  const prev = month({ costs: { Electricity: 200000 } });
+  const s = month({
+    heat, costs: { Electricity: 276000 }, salesCents: 100000, mins: 1000,
+    bySvc: [
+      svc("fade", "Fade", { priceCents: 12000, avgCents: 10600, count: 192, perMin: 300 }), // discount gap R2 688
+      svc("kids", "Kids Cut", { perMin: 70, mins: 6000 }), // lowest earner R1 800
+    ],
+  });
+  const { alerts, dashboard } = dashboardTips(s, prev);
+  assert.deepEqual(alerts.map((a) => a.title), ["Electricity up 38%"]);
+  assert.ok(alerts[0].impactCents < dashboard[1].impactCents); // R760 ranks below the tips…
+  assert.deepEqual(dashboard.map((t) => t.id), ["discount", "lowest", "busiest"]); // …which keep their ranking
+  assert.ok(!dashboard.some((t) => t.id.startsWith("cost:")));
+  assert.deepEqual(dashboardTips(s, null).alerts, []); // nothing to compare with in the first month
 });
 
 test("a steady month", () => {

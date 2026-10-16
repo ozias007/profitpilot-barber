@@ -180,7 +180,7 @@ Tips are ordered by **rand impact**. The Dashboard shows at most 3; the rest app
 | Tip | Fires when | Example wording | Shown on |
 |---|---|---|---|
 | **Busiest slot** | a slot averages 3+ cuts an hour | "Saturday 10:00–12:00 averages 3.9 cuts an hour. Take bookings so walk-ins don't leave." | Dashboard |
-| **Cost jump** | a cost is up more than 15% **and** at least R200 vs the previous real month | "Electricity up 38%: R2 000 → R2 760." Also drives the Costs alert and its warning icon. | Dashboard, Costs |
+| **Cost jump** | a cost is up more than 15% **and** at least R200 vs the previous real month | "Electricity up 38%: R2 000 → R2 760." | **An alert, not a tip** (decided at the slice 4 checkpoint): a slim red strip at the top of the Dashboard ("⚠ Electricity up 38% (+R760). Check costs →"), whatever the tip ranking, plus the alert on Costs. It is never shown in Quick Insights. |
 | **Lowest earner per minute** | the service with the lowest R/min that has 10+ sales and is at least 20% below the shop's average R/min | Links to the Price Planner with that service selected. | Dashboard |
 | **Discount gap** | a service with 10+ sales whose average charged price is 10%+ below its list price | "Fades sold for R108 on average, not R120." | Dashboard |
 | **Money kept fell** | money kept is down more than 10% vs last month | Names the biggest cause: a specific cost, fewer cuts, or higher commission. | Dashboard |
@@ -199,13 +199,13 @@ Tips are ordered by **rand impact**. The Dashboard shows at most 3; the rest app
 - **Choosing the Dashboard's 3 tips:**
   1. Take the top 2 tips by rand impact.
   2. If the busiest-slot tip fires, it takes 3rd place. Otherwise, 3rd place goes to the next tip by rand impact.
-  3. **No double counting:** if "Money kept fell" names a cost as its biggest cause, and that same cost also fired "Cost jump", show only "Money kept fell" (with the cost named in it).
+  3. *(Superseded at the slice 4 checkpoint: cost jumps are now alerts, not tips, so they never compete for these places and there is nothing to de-duplicate.)*
 
 **Acceptance**
 - [ ] Each rule has tests just inside and just outside its threshold. For example, a cost up 15% doesn't fire, 16% does; up 20% but only R150 doesn't fire.
-- [ ] With the October example plus the demo electricity bill, "Electricity up 38%" appears on the Dashboard and Costs.
+- [ ] With the October example plus the demo electricity bill, "Electricity up 38%" appears as an alert on the Dashboard and on Costs, even when it ranks below the top 3 tips.
 - [ ] The busiest-slot tip is on the Dashboard whenever it fires, even when 3+ tips have a higher rand impact.
-- [ ] When money kept fell because of a cost that also jumped, only one tip appears for it.
+- [ ] A cost jump is never shown as a Quick Insights tip, only as an alert.
 
 ### Costs
 Source: `scope.md > The POC Boundary`, slice 2.

@@ -168,7 +168,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
 
 ## Hands-on Checkpoints
 
-- [ ] Early usable behavior explored — after slice 4: import the example sheet and your own messy CSV, read the Dashboard and tips, and give feedback while Costs, Barbers and Sales are still to come
+- [x] Early usable behavior explored — after slice 4: import the example sheet and your own messy CSV, read the Dashboard and tips, and give feedback while Costs, Barbers and Sales are still to come
 - [ ] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
@@ -208,5 +208,10 @@ Activity mode:
 - A service's "average charged" now leaves refunds out (free cuts still count at R0). A refund isn't a discount, and counting it made the Discount gap tip misfire.
 - The October example sheet now has slightly more discounted fades (45% instead of 40%), so its Fade average (R106) triggers the Discount gap tip, as the PRD's "Fades sold for R108 on average" example intends. It was R108.x and didn't fire.
 - The heatmap shows two-letter day names (Mo, Tu…) only between 1201 and 1500px wide, where the reference's own labels overlap (25px labels in 19px columns). Every other width matches the reference.
-- **Open, for the learner at the slice 4 checkpoint:** with the October example plus the demo electricity bill, the learner's ordering rule puts Fade discounts (R2 700) and Kids Cuts (R1 833) above the electricity jump (R760), and the busiest slot takes 3rd place. So "Electricity up 38%" is not on the Dashboard, although `prd.md > Tips` acceptance says it should be. It will show on Costs (slice 5).
+- At the slice 4 checkpoint the learner resolved the electricity question with option (c):
+  - cost jumps are **warnings, not tips**: a slim red alert strip at the top of the Dashboard ("Electricity up 38% (+R760). Check costs →"), shown whatever the tip ranking, plus the alert on Costs;
+  - they never appear in Quick Insights, and the tip ranking is unchanged;
+  - the "money kept fell vs cost jump" de-duplication was removed, since there's nothing left to de-duplicate.
+
+  The `prd.md > Tips` table and acceptance were updated. The test is in `tips.test.js`.
 

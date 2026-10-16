@@ -158,23 +158,30 @@ export function barberTips(s) {
 
 // ---------- choosing what the Dashboard shows ----------
 
-/** Every Dashboard-type tip that fires this month, before choosing. */
+/** Every Quick Insights tip that fires this month, before choosing. Cost jumps are not tips: they are alerts (below). */
 export function allTips(s, p) {
-  return [busiestSlot(s), ...costJumps(s, p), lowestEarner(s), discountGap(s), keptFell(s, p), quietSlot(s)].filter(Boolean);
+  return [busiestSlot(s), lowestEarner(s), discountGap(s), keptFell(s, p), quietSlot(s)].filter(Boolean);
+}
+
+/**
+ * Everything the Dashboard shows from the rules:
+ *  - alerts: every cost jump, biggest first, as a red strip above everything, whatever the tips' ranking;
+ *  - the Quick Insights tips chosen by pickDashboardTips.
+ */
+export function dashboardTips(s, p) {
+  return { alerts: costJumps(s, p).sort((a, b) => b.impactCents - a.impactCents), ...pickDashboardTips(allTips(s, p)) };
 }
 
 const NO_AMOUNT_ORDER = ["busiest", "quiet"]; // tips without a rand amount rank after those with one, in this order
 
 /**
- * The Dashboard's tips (at most 3), plus the rest for their own pages.
- *  1. No double counting: if "money kept fell" names a cost that also fired "cost jump", only "money kept fell" stays.
- *  2. The top 2 by rand impact.
- *  3. The busiest slot takes 3rd place when it fires (Saturday's queue must never be pushed off); otherwise the next by impact.
+ * The Dashboard's Quick Insights (at most 3), plus the rest for their own pages.
+ *  1. The top 2 by rand impact.
+ *  2. The busiest slot takes 3rd place when it fires (Saturday's queue must never be pushed off); otherwise the next by impact.
  * @returns { dashboard: tip[], rest: tip[], steady: boolean }
  */
 export function pickDashboardTips(tips) {
-  const fell = tips.find((t) => t.id === "keptFell");
-  const list = tips.filter((t) => !(fell && t.cost && t.cost === fell.cause));
+  const list = tips;
   const ranked = [...list].sort((a, b) => {
     if (a.impactCents != null && b.impactCents != null) return b.impactCents - a.impactCents;
     if (a.impactCents != null) return -1;

@@ -4,7 +4,7 @@ import { formatR, formatR2, formatNum, pct } from "../../core/money.js";
 import { change, costItems } from "../../core/month.js";
 import { esc, tile, icon, tipAttr, changeBadge, colorAt, serviceIcon } from "../ui/dom.js";
 import { heatmap, moneyBar } from "../ui/charts.js";
-import { allTips, pickDashboardTips, nextStep } from "../../core/tips.js";
+import { dashboardTips, nextStep } from "../../core/tips.js";
 
 export const title = (ctx) => [`${greeting()}, ${ctx.data.profile.greet || "Boss"}! 👋`, `Here's how your shop performed in ${ctx.label}.`];
 
@@ -19,8 +19,15 @@ export function tipRow(t) {
   return `<div class="in">${tile(t.icon, t.color)}<div><b>${esc(t.title)}</b><span>${esc(t.text)}${link}</span></div></div>`;
 }
 
+/** Slim red strip for cost jumps: warnings, kept apart from the Quick Insights tips. */
+export function costAlertStrip(alerts) {
+  if (!alerts.length) return "";
+  const parts = alerts.map((a) => `${esc(a.title)} (+${formatR(a.impactCents)})`).join(" · ");
+  return `<div class="alertstrip" role="alert">${icon("i-alert")}<span><b>${parts}.</b></span><button class="linkbtn" data-goto="costs/edit">Check costs →</button></div>`;
+}
+
 export function render({ s, p }) {
-  const picked = pickDashboardTips(allTips(s, p));
+  const picked = dashboardTips(s, p);
   const kept = s.kept == null
     ? `<span class="hint">Add your costs to see money kept</span><button class="linkbtn" data-goto="costs/edit">Add costs →</button>`
     : `<strong class="n">${formatR(s.kept)}</strong><span class="sub">out of ${formatR(s.salesCents)} taken in</span>
@@ -30,7 +37,7 @@ export function render({ s, p }) {
   const maxPerMin = Math.max(1, ...services.map((x) => x.perMin));
   const items = costItems(s).map((it, i) => ({ ...it, color: colorAt(i) }));
 
-  return `
+  return `${costAlertStrip(picked.alerts)}
   <div class="grid k4">
    <div class="card kpi">${tile("i-wallet", "green")}<div style="flex:1;min-width:0"><small>Money Kept</small>${kept}</div></div>
    <div class="card kpi">${tile("i-scissors", "blue")}<div><small>Total Sales</small><strong class="n">${formatR(s.salesCents)}</strong>${changeBadge(change(s.salesCents, p?.salesCents))}</div></div>

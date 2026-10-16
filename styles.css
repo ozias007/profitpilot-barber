@@ -297,3 +297,7 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 /* the reference's day labels collide when the heatmap card is narrowest (3-column dashboard, 1201–1500px): use Mo, Tu… there */
 .heat .ds{display:none}
 @media (min-width:1201px) and (max-width:1500px){.heat .dl{display:none}.heat .ds{display:inline}}
+.alertstrip{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:9px 14px;margin-bottom:16px;border-radius:10px;background:var(--red-wash);border:1px solid color-mix(in oklab,var(--red) 30%,transparent);font-size:.88rem}
+.alertstrip>svg{width:17px;height:17px;color:var(--red);flex:none}
+.alertstrip b{color:var(--red)}
+.alertstrip span{flex:1;min-width:12rem}
