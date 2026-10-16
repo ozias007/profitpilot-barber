@@ -280,7 +280,6 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 .shopname{cursor:default}
 .empty-note{color:var(--muted);font-size:.86rem;margin:0}
 .kpi .hint{display:block;font-size:.95rem;font-weight:700;color:var(--muted);margin-top:4px;line-height:1.3}
-.mbar .segs{overflow-x:auto}
 .sub a,.okmsg a{color:var(--brand);font-weight:700}
 .banner{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;margin:0 0 16px;font-size:.88rem;background:var(--blue-wash)}
 .banner>svg{width:18px;height:18px;color:var(--brand);flex:none;margin-top:2px}
@@ -294,16 +293,25 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 .step .row>b{min-width:10rem}
 .step .row label{display:inline-flex;gap:6px;align-items:center;font-size:.86rem;font-weight:600}
 .step .actions{display:flex;gap:10px;flex-wrap:wrap}
-/* the reference's day labels collide when the heatmap card is narrowest (3-column dashboard, 1201–1500px): use Mo, Tu… there */
-.heat .ds{display:none}
-@media (min-width:1201px) and (max-width:1500px){.heat .dl{display:none}.heat .ds{display:inline}}
+/* heatmap labels: "Mon Tue…" and "08:00 – 10:00" like the design; where the 3-column dashboard makes the card narrowest
+   (1201–1500px) the time labels shorten to "08–10" so the day names fit; on phones the days shorten to "Mo Tu…" */
+.heat .ds,.heat .sls{display:none}
+@media (min-width:1201px) and (max-width:1500px){.heat{grid-template-columns:auto repeat(7,minmax(0,1fr))}.heat .slf{display:none}.heat .sls{display:inline}}
+@media (max-width:480px){.heat .dl{display:none}.heat .ds{display:inline}}
 .alertstrip{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:9px 14px;margin-bottom:16px;border-radius:10px;background:var(--red-wash);border:1px solid color-mix(in oklab,var(--red) 30%,transparent);font-size:.88rem}
 .alertstrip>svg{width:17px;height:17px;color:var(--red);flex:none}
 .alertstrip b{color:var(--red)}
 .alertstrip span{flex:1;min-width:12rem}
-/* donut legends overlap when their card is narrow (the reference does too at ~1280px): stack legend under the donut */
+/* donut legends sit beside the donut like the design; in narrower cards the donut shrinks so the legend never overlaps,
+   and only on phone-width cards does the legend stack underneath */
 .card:has(.donut){container-type:inline-size}
-@container (max-width:560px){.donut{grid-template-columns:1fr;justify-items:center}.donut svg{max-width:210px}}
+.legend span{min-width:0;overflow-wrap:break-word}
+.legend b{white-space:nowrap}
+@container (max-width:560px){.donut{grid-template-columns:minmax(110px,150px) minmax(0,1fr);gap:16px}.legend{font-size:.84rem;gap:10px}.legend div{gap:8px}}
+@container (max-width:300px){.donut{grid-template-columns:1fr;justify-items:center}.donut svg{max-width:210px}}
+/* "where the money went": when its card is too narrow for one row (phones, tablets), the boxes wrap onto rows instead of being cut off */
+.card.money{container-type:inline-size}
+@container (max-width:480px){.mbar .segs{flex-wrap:wrap}.mbar .segs span{flex:1 1 30%;border-bottom:1px solid var(--line)}}
 .print-head{display:none}
 .dl .dlcard{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:center}
 .dl .dlcard b{display:block;font-size:.84rem}

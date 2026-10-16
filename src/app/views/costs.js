@@ -30,17 +30,16 @@ export function render(ctx) {
   const items = costItems(s).map((it, i) => ({ ...it, color: colorAt(i) }));
   const jumps = ctx.data.prefs.notify?.costJump === false ? [] : costJumps(s, p); // the warning can be turned off in Settings
   const flagged = new Set(jumps.map((j) => j.cost));
-  const increases = Object.entries(s.costs)
-    .filter(([name]) => p?.costs[name] > 0)
-    .map(([name, v]) => ({ name, pc: ((v - p.costs[name]) / p.costs[name]) * 100 }))
-    .sort((a, b) => b.pc - a.pc);
-  const biggest = increases[0]?.pc > 0 ? increases[0] : null;
+  // the biggest increase that meets the alert rule (more than 15% and at least R200); small rises stay neutral
+  const biggest = [...jumps].sort((a, b) => b.pct - a.pct)[0] ?? null;
   const highest = items[0];
 
   const head = `<div class="grid k3">
    <div class="card kpi">${tile("i-coins", "orange")}<div><small>Total Costs</small><strong class="n">${formatR(s.costTotal)}</strong><span class="sub">${s.hasCosts ? `${pct(s.costTotal, s.salesCents).toFixed(1)}% of sales` : "commission only, until you add costs"}</span></div></div>
    <div class="card kpi">${tile("i-shop", "red")}<div><small>Highest Cost</small><b style="display:block;font-size:1rem">${esc(highest?.name ?? "—")}</b><strong class="n">${formatR(highest?.cents ?? 0)}</strong><span class="sub">${pct(highest?.cents ?? 0, s.costTotal).toFixed(0)}% of total</span></div></div>
-   <div class="card kpi">${tile("i-alert", "red")}<div><small>Biggest Increase</small><b style="display:block;font-size:1rem">${biggest ? esc(biggest.name) : "None"}</b><strong class="${biggest ? "dn" : "mut"}">${biggest ? `+${biggest.pc.toFixed(0)}%` : "—"}</strong><span class="sub">${p ? "vs last month" : "no earlier month"}</span></div></div></div>`;
+   ${biggest
+     ? `<div class="card kpi">${tile("i-alert", "red")}<div><small>Biggest Increase</small><b style="display:block;font-size:1rem">${esc(biggest.cost)}</b><strong class="dn">+${Math.round(biggest.pct)}%</strong><span class="sub">+${formatR(biggest.impactCents)} vs last month</span></div></div>`
+     : `<div class="card kpi">${tile("i-shield", "green")}<div><small>Biggest Increase</small><b style="display:block;font-size:1rem">No unusual increases</b><span class="sub">${p ? "nothing up more than 15% and R200" : "no earlier month to compare"}</span></div></div>`}</div>`;
 
   const legend = items.filter((it) => it.cents > 0).map((it) => `<div style="--c:var(${it.color})"><i></i><span>${esc(it.name)}</span><span class="w">${flagged.has(it.name) ? icon("i-alert") : ""}</span><b class="n">${pct(it.cents, s.costTotal).toFixed(0)}% · ${formatR(it.cents)}</b></div>`).join("");
   const breakdownCard = `<section class="card"><h2>Costs Breakdown</h2><div class="donut">${donut(items, s.costTotal, "Total Costs")}<div class="legend">${legend}</div></div></section>`;

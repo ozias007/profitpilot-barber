@@ -6,7 +6,23 @@ export function esc(value) {
 }
 
 export const COLORS = ["--s1", "--s2", "--s3", "--s4", "--s5", "--s6"];
-export const colorAt = (i) => COLORS[i % COLORS.length];
+/** The i-th series colour; the palette has six, so the 7th item onwards is neutral grey (never a reused colour). */
+export const colorAt = (i) => (i < COLORS.length ? COLORS[i] : "--muted");
+
+/**
+ * Donut slices: items in grey (beyond the 6th) fold into one "Other" slice, so every colour means one thing.
+ * If there's already an item called "Other", they're added to it. items: [{ name, cents, color }]
+ */
+export function foldOther(items) {
+  const extra = items.filter((it) => it.color === "--muted");
+  if (!extra.length) return items;
+  const kept = items.filter((it) => it.color !== "--muted").map((it) => ({ ...it }));
+  const cents = extra.reduce((a, it) => a + it.cents, 0);
+  const other = kept.find((it) => it.name.toLowerCase() === "other");
+  if (other) other.cents += cents;
+  else kept.push({ name: "Other", cents, color: "--muted" });
+  return kept.sort((a, b) => b.cents - a.cents);
+}
 
 const SERVICE_ICONS = { chiskop: "i-razor", fade: "i-scissors", beard: "i-beard", design: "i-sparkle", kids: "i-child" };
 export const serviceIcon = (id) => SERVICE_ICONS[id] || "i-comb";
@@ -65,7 +81,7 @@ export function bindTips(el) {
 export function changeBadge(pctChange, goodUp = true) {
   if (pctChange == null) return `<span class="sub">no earlier month</span>`;
   const good = goodUp ? pctChange >= 0 : pctChange <= 0;
-  return `<span class="d ${good ? "up" : "dn"}">${pctChange >= 0 ? "+" : ""}${pctChange.toFixed(0)}% vs last month ${icon("i-trend")}</span>`;
+  return `<span class="d ${good ? "up" : "dn"}">${pctChange >= 0 ? "+" : ""}${pctChange.toFixed(0)}% vs last month ${icon(pctChange < 0 ? "i-trend-down" : "i-trend")}</span>`;
 }
 
 /** Save text as a CSV file (opens in Excel). The byte-order mark makes Excel read R and accents as UTF-8. */

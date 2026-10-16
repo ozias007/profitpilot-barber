@@ -28,6 +28,7 @@ export function renderBanners(ctx) {
   const out = [];
   if (!store.ok) out.push(banner("warn", "<b>Can't save on this device.</b> Changes will be lost when you close ProfitPilot."));
   for (const r of reminders(data, today())) {
+    if (r.id === "satFull" && ctx.view !== "dash") continue; // a Dashboard-only nudge, not on every page
     if (r.id === "monday") out.push(mondayCard(r, ctx));
     else if (r.id === "importReminder") out.push(banner("info", `${esc(r.text)} <button class="linkbtn" data-goto="reports/month">Import sales →</button>`, `importBanner|${r.dismissKey}`));
     else out.push(banner("info", esc(r.text), `${r.id}|${r.dismissKey}`));

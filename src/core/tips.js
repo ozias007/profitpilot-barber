@@ -49,7 +49,7 @@ export function costJumps(s, p) {
     const pct = (up / before) * 100;
     if (pct > RULES.costJumpPct && up >= RULES.costJumpMinCents) {
       tips.push({
-        id: `cost:${name}`, impactCents: up, icon: "i-excl", color: "orange", page: "costs", cost: name,
+        id: `cost:${name}`, impactCents: up, pct, icon: "i-excl", color: "orange", page: "costs", cost: name,
         title: `${name} up ${pctText(pct)}`,
         text: `${formatR(before)} → ${formatR(now)} compared with last month.`,
         action: `Check your ${name.toLowerCase()} bill: it's up ${formatR(up)} on last month.`,

@@ -5,7 +5,7 @@ import { formatR, formatR2, formatNum, pct } from "../../core/money.js";
 import { change, costItems, monthLabel, MONTH_NAMES } from "../../core/month.js";
 import { customReport, serviceRows, barberRows, toCsv, transactionsCsv, pctChange } from "../../core/reports.js";
 import { dashboardTips } from "../../core/tips.js";
-import { esc, icon, tile, downloadCsv, subtabs, colorAt, changeBadge } from "../ui/dom.js";
+import { esc, icon, tile, downloadCsv, subtabs, colorAt, foldOther, changeBadge } from "../ui/dom.js";
 import { donut } from "../ui/charts.js";
 import { importCard, bindImport } from "./import.js";
 
@@ -62,7 +62,9 @@ function serviceTab({ s, p, data }) {
   const best = [...sold].sort((a, b) => b.perMin - a.perMin)[0];
   const mostTime = [...rows].sort((a, b) => b.chairMins - a.chairMins)[0];
   const dot = (id) => `<span class="dot" style="--c:var(${colorOf[id]})"></span>`;
-  const legend = (key, total) => rows.filter((x) => x[key] > 0).map((x) => `<div style="--c:var(${colorOf[x.id]})"><i></i><span>${esc(x.name)}</span><span></span><b class="n">${pct(x[key], total).toFixed(1)}%</b></div>`).join("");
+  const slices = (key) => foldOther(rows.map((x) => ({ name: x.name, cents: x[key], color: colorOf[x.id] })));
+  const legend = (items, total) => items.filter((x) => x.cents > 0).map((x) => `<div style="--c:var(${x.color})"><i></i><span>${esc(x.name)}</span><span></span><b class="n">${pct(x.cents, total).toFixed(1)}%</b></div>`).join("");
+  const sales = slices("salesCents"), chair = slices("chairMins");
   return `<div class="grid k3">
     <div class="card kpi">${tile("i-scissors", "blue")}<div><small>Services sold</small><strong class="n">${s.cuts}</strong>${changeBadge(change(s.cuts, p?.cuts))}</div></div>
     <div class="card kpi">${tile("i-tag", "green")}<div><small>Best earner per minute</small><b style="display:block;font-size:1rem">${esc(best?.name ?? "—")}</b><strong class="n">${best ? formatR2(best.perMin) : "—"}</strong></div></div>
@@ -72,8 +74,8 @@ function serviceTab({ s, p, data }) {
     <tr class="tot"><td><b>Total</b></td><td class="n"><b>${s.cuts}</b></td><td class="n">${p ? changeCell(pctChange(s.cuts, p.cuts)) : "—"}</td><td class="n"><b>${formatR(s.salesCents)}</b></td><td class="n">${p ? changeCell(pctChange(s.salesCents, p.salesCents)) : "—"}</td><td class="n">100%</td><td class="n">${formatNum(s.mins)} min</td><td class="n">${formatR2(s.mins ? s.salesCents / s.mins : 0)}</td></tr>
    </tbody></table></div></section>
    <div class="grid c2e mt">
-    <section class="card"><h2>Share of sales</h2><div class="donut">${donut(rows.map((x) => ({ name: x.name, cents: x.salesCents, color: colorOf[x.id] })), s.salesCents, "Total Sales")}<div class="legend">${legend("salesCents", s.salesCents)}</div></div></section>
-    <section class="card"><h2>Share of chair time</h2><div class="donut">${donut(rows.map((x) => ({ name: x.name, cents: x.chairMins, color: colorOf[x.id] })), s.mins, "Chair minutes", (v) => `${formatNum(v)} min`)}<div class="legend">${legend("chairMins", s.mins)}</div></div>
+    <section class="card"><h2>Share of sales</h2><div class="donut">${donut(sales, s.salesCents, "Total Sales")}<div class="legend">${legend(sales, s.salesCents)}</div></div></section>
+    <section class="card"><h2>Share of chair time</h2><div class="donut">${donut(chair, s.mins, "Chair minutes", (v) => `${formatNum(v)} min`)}<div class="legend">${legend(chair, s.mins)}</div></div>
      <div class="protip">${tile("i-sparkle", "purple")}<div><b>Read it together</b>A service that takes a bigger share of chair time than of sales earns less per minute than your average.</div></div></section>
    </div>`;
 }

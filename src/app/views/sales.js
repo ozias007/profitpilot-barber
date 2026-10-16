@@ -6,7 +6,7 @@ import { change, MONTH_NAMES, weekday } from "../../core/month.js";
 import { planPrice, priceRange } from "../../core/planner.js";
 import { lowestEarner } from "../../core/tips.js";
 import { makeId } from "../../core/importer.js";
-import { esc, tile, subtabs, colorAt, changeBadge } from "../ui/dom.js";
+import { esc, tile, subtabs, colorAt, foldOther, changeBadge } from "../ui/dom.js";
 import { donut } from "../ui/charts.js";
 import { checkBadge } from "./barbers.js";
 
@@ -92,12 +92,13 @@ export function render(ctx) {
       </form><div id="planOut" class="mt">${planOut(svc, label)}</div></section>`;
   }
 
-  const legend = sorted.filter((x) => x.salesCents > 0).map((x) => `<div style="--c:var(${colorOf[x.id]})"><i></i><span>${esc(x.name)}</span><span></span><b class="n">${pct(x.salesCents, s.salesCents).toFixed(1)}%</b></div>`).join("");
+  const slices = foldOther(sorted.map((x) => ({ name: x.name, cents: x.salesCents, color: colorOf[x.id] })));
+  const legend = slices.filter((x) => x.cents > 0).map((x) => `<div style="--c:var(${x.color})"><i></i><span>${esc(x.name)}</span><span></span><b class="n">${pct(x.cents, s.salesCents).toFixed(1)}%</b></div>`).join("");
   return tabs + head + `<div class="grid c2 mt">
    <section class="card"><h2>Sales by Service <button class="linkbtn" data-goto="sales/services">Edit services →</button></h2><div class="tw"><table><thead><tr><th>Service</th><th>Sales</th><th>% of Total</th><th>Avg. Price</th></tr></thead><tbody>
     ${sorted.map((x) => `<tr><td>${dot(x.id)}${esc(x.name)}</td><td class="n">${formatR(x.salesCents)}</td><td class="n">${pct(x.salesCents, s.salesCents).toFixed(1)}%</td><td class="n">${formatR(x.avgCents)}</td></tr>`).join("")}
    </tbody></table></div></section>
-   <section class="card"><h2>Service Share</h2><div class="donut">${donut(sorted.map((x) => ({ name: x.name, cents: x.salesCents, color: colorOf[x.id] })), s.salesCents, "Total Sales")}<div class="legend">${legend}</div></div>${proTip(s.bySvc)}</section>
+   <section class="card"><h2>Service Share</h2><div class="donut">${donut(slices, s.salesCents, "Total Sales")}<div class="legend">${legend}</div></div>${proTip(s.bySvc)}</section>
   </div>`;
 }
 

@@ -13,7 +13,7 @@ export const heatColor = (v) => (v < 1.2 ? "--heat-q" : v < 2 ? "--heat-m" : v <
 export function heatmap(heat) {
   const head = `<span></span>${DAY_LABELS.map((d) => `<span class="h"><span class="dl">${d}</span><span class="ds" aria-hidden="true">${d.slice(0, 2)}</span></span>`).join("")}`;
   const rows = SLOTS.map((slot, si) =>
-    `<span style="align-self:center;white-space:nowrap">${slot}</span>` +
+    `<span style="align-self:center;white-space:nowrap"><span class="slf">${slot}</span><span class="sls">${slot.slice(0, 2)}–${slot.slice(8, 10)}</span></span>` +
     DAY_LABELS.map((d, di) => {
       const v = heat[di][si];
       return `<span class="c" tabindex="0" style="--hc:var(${heatColor(v)})" ${tipAttr(`<b>${d} ${slot}</b>${v.toFixed(1)} cuts an hour`)} aria-label="${d} ${slot}: ${v.toFixed(1)} cuts an hour"></span>`;

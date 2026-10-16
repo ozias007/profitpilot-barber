@@ -64,7 +64,7 @@ function render() {
   if (!keys.includes(data.ui.month)) data.ui.month = keys.at(-1);
   const key = data.ui.month;
   const prev = previousKey(keys, key);
-  const ctx = { data, key, label: monthLabel(key), s: summaries[key], p: prev ? summaries[prev] : null, sub, update, go, toast, store };
+  const ctx = { data, key, label: monthLabel(key), s: summaries[key], p: prev ? summaries[prev] : null, view, sub, update, go, toast, store };
   lastCtx = ctx;
 
   $("menu").querySelectorAll("button").forEach((b) => b.setAttribute("aria-current", b.dataset.v === view ? "page" : "false"));

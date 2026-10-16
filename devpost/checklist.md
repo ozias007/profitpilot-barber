@@ -173,6 +173,27 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
 
 ## Final Review
 
+Findings from the learner's kick-the-tires session: the demo path is exact (−R760, the alert, +R360), every tab works with no errors, and it matches the design closely. Seven fixes were agreed:
+
+- [x] 1. "Saturday mornings full" banner on the Dashboard only
+- [x] 2. Costs › Biggest Increase is neutral ("No unusual increases") unless a cost meets the alert rule
+- [x] 3. Donut legends beside the donut at desktop width (Sales & Services, Costs); stacked only on narrow screens
+- [x] 4. Colours follow the service: services beyond the 6th fold into the donut's "Other" slice, with a grey dot in tables
+- [x] 5. A down arrow for decreases in "vs last month"
+- [x] 6. Heatmap days "Mon Tue Wed…" on desktop, two letters only on phones
+- [x] 7. Phone: "Where the money went" boxes wrap onto two rows instead of being cut off
+
+Verified at 1600, 1440, 1280, 1100, 1024, 768 and 390px:
+- no legend overlaps, no clipped boxes, no heatmap label overflow, and no sideways scroll;
+- legends sit beside the donut at desktop widths. The Sales legend stacks only where its card is under 300px wide (phones, and 1024–1100px where that card is narrowest);
+- "Where the money went" wraps whenever its card is under 480px (phones and about 1024px);
+- Biggest Increase is neutral until a cost meets the alert rule;
+- the 7th service gets a grey dot and is folded into "Other" in the donuts. The same grey applies to a 7th barber or cost, so no colour is ever reused;
+- the down arrow appears on decreases;
+- "Saturday mornings full" appears on the Dashboard only (with the clock set to 2 November).
+
+Waiting for the learner to retry these and confirm readiness.
+
 - [ ] Final review complete — feedback resolved and learner confirms ready to ship
 
 ## Code Tour and App Map
