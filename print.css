@@ -1,0 +1,16 @@
+/* Export PDF: the browser's own print-to-PDF of the current report. Hides the app around it; keeps cards and charts. */
+@page { margin: 14mm; }
+body { background: #fff !important; color: #0f172a; font-size: 12px; }
+.app { display: block; background: none; }
+.side, .menu-btn, .controls, .subtabs, .report-actions, #banners, .no-print, .toast, .tip, #customForm, .linkbtn, .btn { display: none !important; }
+.top { margin-bottom: 6px; }
+.top p { display: none; }
+main { padding: 0 !important; }
+.print-head { display: block !important; font-size: 13px; margin-bottom: 10px; color: #64708a; }
+.card { box-shadow: none !important; border-color: #ccd3e0 !important; break-inside: avoid; }
+.grid { gap: 10px !important; }
+.k3, .k4 { grid-template-columns: repeat(3, 1fr) !important; }
+.c2, .c2e, .c2r, .c2w, .c3 { grid-template-columns: 1fr 1fr !important; }
+.tw { overflow: visible !important; }
+table { font-size: 11px; }
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }

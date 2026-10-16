@@ -79,5 +79,33 @@ export function trendLines(s, W) {
   return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Daily sales and costs">${g}</svg>`;
 }
 
-/** Charts that need the card's real width are drawn after the page is on screen: <div class="chart" data-chart="trend">. */
-export const WIDTH_CHARTS = { trend: trendLines };
+/**
+ * Sales vs Costs per day as paired bars. `series` overrides the month's own lines
+ * (the Custom Report passes its filtered sales, with no costs).
+ */
+export function dailyBars(s, W, series = null) {
+  const daily = series?.daily ?? s.daily, dailyCost = series?.dailyCost ?? s.dailyCost;
+  const H = 200, pad = { l: 46, r: 8, t: 12, b: 26 }, n = s.days;
+  const max = niceMax([...daily, ...dailyCost]);
+  const { g: grid, y } = axes(W, H, pad, max);
+  const gw = (W - pad.l - pad.r) / n, bw = Math.max(2, Math.min(9, gw / 2 - 2));
+  let g = grid;
+  for (let i = 0; i < n; i++) {
+    const cx = pad.l + gw * i + gw / 2;
+    [[daily[i], "--s2", -1], [dailyCost[i], "--s1", 1]].forEach(([v, color, side]) => {
+      if (!(v > 0)) return;
+      const bx = side < 0 ? cx - bw - 1 : cx + 1, top = y(v), r = Math.min(3, bw / 2);
+      g += `<path d="M${bx} ${y(0)} V${top + r} q0 -${r} ${r} -${r} h${bw - 2 * r} q${r} 0 ${r} ${r} V${y(0)}z" fill="var(${color})" stroke="none"/>`;
+    });
+    const tipText = `<b>${i + 1} ${short(s)}</b>Sales: ${formatR(daily[i])}${series?.salesOnly ? "" : `<br>Costs: ${formatR(dailyCost[i])}`}`;
+    g += `<rect x="${cx - gw / 2}" y="${pad.t}" width="${gw}" height="${H - pad.t - pad.b}" fill="transparent" stroke="none" ${tipAttr(tipText)}/>`;
+    if ([0, 6, 13, 20, 27].includes(i)) g += `<text x="${cx}" y="${H - 7}" text-anchor="middle" font-size="11" fill="var(--muted)" stroke="none">${short(s)} ${i + 1}</text>`;
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${series?.salesOnly ? "Sales per day for this selection" : "Sales and costs per day"}">${g}</svg>`;
+}
+
+/**
+ * Charts that need the card's real width are drawn after the page is on screen: <div class="chart" data-chart="trend">.
+ * A data-series attribute (JSON) can supply the numbers instead of the month summary.
+ */
+export const WIDTH_CHARTS = { trend: trendLines, bars: dailyBars };

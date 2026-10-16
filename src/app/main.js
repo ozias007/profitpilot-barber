@@ -91,7 +91,8 @@ function render() {
 /** Draw width-dependent charts at their card's real width (again whenever the window is resized). */
 function drawCharts(ctx) {
   document.querySelectorAll("#view [data-chart]").forEach((el) => {
-    el.innerHTML = WIDTH_CHARTS[el.dataset.chart](ctx.s, Math.max(280, Math.floor(el.clientWidth)));
+    const series = el.dataset.series ? JSON.parse(el.dataset.series) : null;
+    el.innerHTML = WIDTH_CHARTS[el.dataset.chart](ctx.s, Math.max(280, Math.floor(el.clientWidth)), series);
     bindTips(el);
   });
 }

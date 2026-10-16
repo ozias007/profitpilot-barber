@@ -124,7 +124,7 @@ Build mode: fast, with learn mode for slices 2–3 (CSV parsing and import); lea
   Learner check: Open the Price Planner, pick Kids Cut, set R80, tick Saturdays only, then move "customers you might lose". Change the Fade price on Services and confirm last month's takings didn't change.
   Commit: `Add Sales & Services and the Price Planner`
 
-- [ ] **8. Reports: summaries, custom filters, PDF and CSV**
+- [x] **8. Reports: summaries, custom filters, PDF and CSV**
   Becomes usable:
   - Reports with all four tabs: Monthly Summary (mini tiles, the Sales vs Costs bars, the Import card, Download Reports, a tip), Service Report, Barber Report, and Custom Report (filters, tiles, chart, matching sales, the empty message).
   - Export PDF prints a clean layout of the current tab, and every CSV download opens in Excel.
@@ -218,4 +218,6 @@ Activity mode:
 - Costs: adding a cost whose name is already on the list (ignoring case) is refused with "Electricity is already on the list. Change its amount above." The PRD didn't cover duplicates.
 - "Please check" badges on Barbers (and later Services) are buttons: tapping one marks that imported name as checked. Editing a barber's rate also counts as checking it. A new barber added by hand starts with the shop's most common rate.
 - The Price Planner opens on the lowest earner per minute (the service the Dashboard tip links to), with "Saturdays only" ticked and the list price + R10. With the October example sheet that's Kids Cut: 36 Saturday cuts, so R80 shows +R360. The PRD's +R330 (33 cuts) is checked exactly in `planner.test.js`.
+- The Transactions CSV export uses the import's own columns (date, time, barber, service, price, minutes), so an export imports back unchanged; there's a round-trip test. The CSV files start with a byte-order mark so Excel reads them as UTF-8.
+- Known limit: the reference palette has six series colours, so a 7th service or barber reuses the first colour in charts.
 

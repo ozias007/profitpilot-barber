@@ -304,3 +304,8 @@ tr.tot td{border-top:2px solid var(--line);background:color-mix(in oklab,var(--g
 /* donut legends overlap when their card is narrow (the reference does too at ~1280px): stack legend under the donut */
 .card:has(.donut){container-type:inline-size}
 @container (max-width:560px){.donut{grid-template-columns:1fr;justify-items:center}.donut svg{max-width:210px}}
+.print-head{display:none}
+.dl .dlcard{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:center}
+.dl .dlcard b{display:block;font-size:.84rem}
+.dlacts{display:block;font-size:.76rem;color:var(--muted)}
+.dlacts .linkbtn{font-size:.76rem}

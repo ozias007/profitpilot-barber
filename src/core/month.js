@@ -31,6 +31,15 @@ export function monthLabel(key) {
   return `${MONTH_NAMES[month - 1]} ${year}`;
 }
 
+/** The most frequent value (first one wins a tie), or null for an empty list. */
+function mostCommon(values) {
+  const counts = new Map();
+  for (const v of values) counts.set(v, (counts.get(v) || 0) + 1);
+  let best = null, n = 0;
+  for (const [v, c] of counts) if (c > n) { best = v; n = c; }
+  return best;
+}
+
 /** Commission for a barber's sales, rounded to the whole rand. */
 export function commissionCents(salesCents, ratePct) {
   return Math.round((salesCents * ratePct) / 100 / 100) * 100;
@@ -92,6 +101,8 @@ export function summarise(key, monthData, services, barbers) {
       mins: bMins,
       commissionCents: commissionCents(bSales, b.ratePct),
       perHour: bMins ? bSales / (bMins / 60) : 0,
+      busiestDay: mostCommon(cutRows.map((r) => weekday(year, month, r[DAY]))), // 0 = Sunday … 6 = Saturday, or null
+      topService: mostCommon(cutRows.map((r) => r[SERVICE])), // service id they do most, or null
     };
   });
 
