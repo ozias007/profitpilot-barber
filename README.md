@@ -12,6 +12,8 @@ Import a month of sales from a CSV and ProfitPilot shows:
 
 There's no AI and no server, and nothing is uploaded: everything runs and is saved in the browser on your own device.
 
+**Demo video:** https://youtu.be/i9ZD9iUULK4
+
 **Live app:** https://ozias007.github.io/profitpilot-barber/
 
 **Source:** https://github.com/ozias007/profitpilot-barber

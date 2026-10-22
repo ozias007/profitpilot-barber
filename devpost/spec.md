@@ -83,6 +83,7 @@ This runs `node --test`. `package.json` has no dependencies, so there's no `npm 
 - URL: `https://<username>.github.io/<repo>/`. All asset paths are relative, so the app works from a sub-path.
 - **Live (published 22 October 2026):** https://ozias007.github.io/profitpilot-barber/, served from `main` / root with a `.nojekyll` file. Checked from outside: the app, its scripts, the example CSVs and the app map load, and `devpost/learner-profile.md` is not published.
 - **Repository (public):** https://github.com/ozias007/profitpilot-barber
+- **Demo video:** https://youtu.be/i9ZD9iUULK4. Viewable without signing in (checked through YouTube's public oEmbed).
 
 **Demo video:** the PRD's demo path, recorded on the Pages URL, or on localhost if Pages isn't ready yet.
 1. First visit shows the sample data.
