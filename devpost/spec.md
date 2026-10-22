@@ -81,6 +81,8 @@ This runs `node --test`. `package.json` has no dependencies, so there's no `npm 
 **Public link (learner's choice):** GitHub Pages, deployed from the `main` branch root.
 - In the repo: Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`.
 - URL: `https://<username>.github.io/<repo>/`. All asset paths are relative, so the app works from a sub-path.
+- **Live (published 22 October 2026):** https://ozias007.github.io/profitpilot-barber/, served from `main` / root with a `.nojekyll` file. Checked from outside: the app, its scripts, the example CSVs and the app map load, and `devpost/learner-profile.md` is not published.
+- **Repository (public):** https://github.com/ozias007/profitpilot-barber
 
 **Demo video:** the PRD's demo path, recorded on the Pages URL, or on localhost if Pages isn't ready yet.
 1. First visit shows the sample data.
